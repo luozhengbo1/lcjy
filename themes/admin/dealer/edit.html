@@ -1,0 +1,111 @@
+{extend name="base" /}
+{block name="body"}
+<div class="layui-body">
+    <!--tab标签-->
+    <div class="layui-tab layui-tab-brief">
+        <ul class="layui-tab-title">
+            <li class=""><a href="{:url('admin/dealer/index')}">经销商管理</a></li>
+            <li class="layui-this">添加经销商</li>
+        </ul>
+        <div class="layui-tab-content">
+            <div class="layui-tab-item layui-show">
+                <form class="layui-form form-container" action="{:url('admin/dealer/update')}" method="post">
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">用户类型</label>
+                        <div class="layui-input-block">
+                            {if condition='$info.is_personnal eq 1'}
+                            <input disabled class="layui-input"  value="个人">
+                            {else/}
+                            <input disabled class="layui-input"  value="公司／组织">
+                            {/if}
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">父级经销商</label>
+                        <div class="layui-input-inline">
+                            <select name="fid" lay-search="">
+                                <option value="">一级经销商</option>
+                                {volist name='dealer_list' id='fo'}
+                                <option value="{$fo.id}" {if condition="$info.fid eq $fo.id"}selected=""{/if}>{$fo.name}</option>
+                                {/volist}
+                            </select>
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label" id="name">
+                            {if condition='$info.is_personnal eq 1'}
+                            真实姓名
+                            {else/}
+                            企业名称
+                            {/if}
+                        </label>
+                        <div class="layui-input-block">
+                            <input type="text" name="name" value="{$info.name}" required lay-verify="required" placeholder="（必填）请输入经销商（公司）名称" class="layui-input">
+                        </div>
+                    </div>
+                    {if condition='$info.is_personnal eq 1'}
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">身份证号</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="sfz" value="{$info.sfz}" required lay-verify="required" placeholder="（必填）请输入身份证号码" class="layui-input">
+                        </div>
+                    </div>
+                    {else/}
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">信用代码</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="cardid" value="{$info.cardid}" required lay-verify="required" placeholder="（必填）请输入统一信用代码" class="layui-input">
+                        </div>
+                    </div>
+                    {/if}
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">银行账号</label>
+                        <div class="layui-input-block">
+                            <input type="number" name="banknumber" value="{$info.banknumber}"  placeholder="未填写" class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">开户行</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="bank" value="{$info.bank}"  placeholder="未填写" class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">联系手机</label>
+                        <div class="layui-input-block">
+                            <input type="tel" name="tel" value="{$info.tel}" required lay-verify="required"placeholder="（必填）请输入手机" class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">联系地址</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="address" value="{$info.address}" required lay-verify="required"placeholder="（必填）请输入联系地址" class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">分佣比例</label>
+                        <div class="layui-input-inline">
+                            <input type="number" name="fenyong" value="{$info.fenyong}" required lay-verify="required"placeholder="（必填）请输入分佣比例" class="layui-input">
+                        </div>
+                        <div class="layui-form-mid layui-word-aux">%</div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">状态</label>
+                        <div class="layui-input-block">
+                            <input type="radio" name="status" value="1" title="启用" {if condition="$info.status eq 1"} checked="checked"{/if}>
+                            <input type="radio" name="status" value="0" title="禁用" {if condition="$info.status eq 0"} checked="checked"{/if}>
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <div class="layui-input-block">
+                            <input type="hidden" name="id" value="{$info.id}">
+                            <button class="layui-btn" lay-submit lay-filter="*">保存</button>
+                            <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{/block}

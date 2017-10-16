@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="zh-cn">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta content="email=no" name="format-detection" />
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <title>酱酒智造</title>
+    <link rel="stylesheet" type="text/css" href="__CSS__/zhongduan/global.css?1" />
+    <script src="__JS__/zhongduan/firstload.min.js" type="text/javascript" charset="utf-8"></script>
+    <link rel="stylesheet" type="text/css" href="__CSS__/zhongduan/swiper.min.css" />
+</head>
+<style>
+ .close{border:1px solid #ffffff;padding:8px 16px;text-align:center;color:#fff;margin-top:52px;}
+</style>
+
+<body>
+<main class="container reg-wrap pa wh100" layout-align="center center" layout>
+    <div style="display: none">
+        <input type="hidden" id='openid'name="openid" value="{$userinfo.id}">
+        <input type="hidden" id='username' name="username" value="{$userinfo.nickname}">
+        <input type="hidden" id='avatar' name="avatar" value="{$userinfo.avatar}">
+        <input type="hidden" id='sex' name="sex" value="{$userinfo.original.sex}">
+        <input type="hidden" id='city' name="city" value="{$userinfo.original.city}">
+    </div>
+    <section class="reg-form">
+        <div class="tc">
+            <img class="reg-logo" src="__IMAGES__/zhongduan/logo.png" alt="" />
+        </div>
+        <div class="ipt-row" layout-align="space-between center" layout>
+            <label for="phone">
+                <svg class="svg svg-phone">
+                    <use xlink:href="__IMAGES__/zhongduan/fontsvg.svg#bkphone" fill="#fff"></use>
+                </svg> </label>
+            <input type="text" maxlength="11" id="phone" class="com-ipt ipt ipt-txt w100 bd-none bg-color-none" value="" placeholder="请输入手机号" />
+        </div>
+        <div class="ipt-row" layout-align="space-between center" layout>
+            <label for="vercode">
+                <svg class="svg svg-phone">
+                    <use xlink:href="__IMAGES__/zhongduan/fontsvg.svg#vercode" fill="#fff"></use>
+                </svg> </label>
+            <input type="hidden" id="codeid" name="sms_id" value="">
+            <input type="text" name="code" maxlength="4" id="vercode" class="com-ipt ipt ipt-txt w100 bd-none bg-color-none" value="" placeholder="请输入验证码" />
+            <button id="btn-vercode" class="btn-vercode pr bg-color-none" ft-white onclick="sendCode()">获取验证码</button>
+        </div>
+        <div class="tc">
+            <input type="submit" ft-white  class="bg-color-none btn-reg-submit w100 bd-none" value="请输入验证码" id="btn1"/>
+            <input type="submit" ft-white onclick="post()" class="bg-color-none btn-reg-submit w100 bd-none" value="确定" id="btn2" style="display: none"/>
+        </div>
+    </section>
+    <div class="notice" style="text-align: center;display: none" >
+        <p style="text-align:center;padding-bottom: 50px;"><img src="__IMAGES__/icons/success.png" alt=""></p>
+        <p style="font-size: 22px;color: #FFFFFF;margin-bottom: 200px;">恭喜您，注册成功</p>
+        <p><a  href="{:url('wechat/user/close')}" class="close">关闭本页面</a></p>
+    </div>
+</main>
+</body>
+<script type="text/javascript" src="__JS__/jquery.min.js"></script>
+<script src="__JS__/layui/lay/dest/layui.all.js"></script>
+<script>
+    function getUrlParam(name) {
+        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)"); //构造一个含有目标参数的正则表达式对象
+        var r = window.location.search.substr(1).match(reg);  //匹配目标参数
+        if (r != null) return unescape(r[2]); return null;
+        //返回参数值
+    }
+    function post() {
+        var phone = $('#phone').val();
+        var openid = $('#openid').val();
+        var avatar = $('#avatar').val();
+        var sex = $('#sex').val();
+        var city = $('#city').val();
+        var username = $('#username').val();
+        var src = getUrlParam('src');
+        var codeid = $('#codeid').val();
+        var code = $('#vercode').val();
+        $.ajax({
+            'type':'POST',
+            'data':{'mobile':phone,'username':username,'from':src,'city':city,'sex':sex,'openid':openid,'avatar':avatar,'sms_id':codeid,'code':code},
+            'url':'/wechat/register',
+            success:function (res) {
+                console.log(res)
+                if (res.code ==2000){
+                    $('.reg-form').hide();
+                    $('.notice').show();
+                }
+            }
+        });
+    };
+    function sendCode() {
+       var phone = $('#phone').val();
+       if(phone == '' || phone ==null){
+           layer.msg('电话不能为空');
+           return false;
+       }
+       $.ajax({
+           url:'/api/sms/sendcode',
+           data:{mobile:phone,type:1,token:'3f7d2271bd621b57'},
+           success:function (res) {
+               console.log(res)
+               if(res.code == 2000){
+                   layer.msg('验证码发送成功');
+                   $('#codeid').val(res.sms_id)
+                    resetCode();
+               } else {
+                   layer.msg('验证码发送失败')
+               }
+           }
+       })
+    };
+    //倒计时
+    function resetCode() {
+        var second = 30;
+        var timer = null;
+        timer = setInterval(function () {
+            second -= 1;
+            if (second > 0) {
+                    $("#btn-vercode").text(second + "秒后重新获取");
+            } else {
+                clearInterval(timer);
+//                $('#btn-vercode').removeClass('layui-btn-disabled');
+                $("#btn-vercode").text("重新发送");
+            }
+        }, 1000);
+    };
+    $('#vercode').change(function () {
+        var codeid = $('#codeid').val();
+        var code = $('#vercode').val();
+        return $.ajax({
+            url:'/api/sms/verify',
+            data:{sms_id:codeid},
+            success:function (res) {
+                if(res !== code){
+                    layer.msg('验证码不正确');
+                    $('#vercode').val('');
+                    return 1;
+                } else{
+                    $('#btn1').hide()
+                    $('#btn2').show()
+                }
+            }
+        })
+    })
+    $('#phone').change(function () {
+        var phone = $('#phone').val();
+        return $.ajax({
+            url:'/api/mobile/checkForUserRegister',
+            data:{'mobile':phone},
+            success:function (res) {
+                if(res.code =1){
+                    layer.msg(res.msg);
+//                    $('#phone').val('');
+                    return 1;
+                }
+            }
+        })
+    })
+</script>
+</html>
+        

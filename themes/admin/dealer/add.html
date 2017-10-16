@@ -1,0 +1,117 @@
+{extend name="base" /}
+{block name="body"}
+<div class="layui-body">
+    <!--tab标签-->
+    <div class="layui-tab layui-tab-brief">
+        <ul class="layui-tab-title">
+            <li class=""><a href="{:url('admin/dealer/index')}">经销商管理</a></li>
+            <li class="layui-this">添加经销商</li>
+        </ul>
+        <div class="layui-tab-content">
+            <div class="layui-tab-item layui-show">
+                <form class="layui-form form-container" action="{:url('admin/dealer/save')}" method="post">
+
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">父级经销商</label>
+                        <div class="layui-input-inline">
+                            <select name="fid" lay-search="">
+                                <option value="" selected="">一级经销商</option>
+                                {volist name='dealer_list' id='fo'}
+                                <option value="{$fo.id}">{$fo.name}</option>
+                                {/volist}
+                            </select>
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">用户类型</label>
+                        <div class="layui-input-block">
+                            <input type="radio" name="is_personnal" value="1" lay-filter="is_personnal" title="个人" checked="checked">
+                            <input type="radio" name="is_personnal" value="0" lay-filter="is_personnal" title="企业/组织">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label" id="name">真实姓名</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="name" value="" required lay-verify="required" placeholder="（必填）请输入经销商名称/个人姓名" class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-form-item" id="cardid" style="display: none">
+                        <label class="layui-form-label">信用代码</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="cardid" value=""  placeholder="（必填）请输入证件号码" class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-form-item" id="sfz">
+                        <label class="layui-form-label">身份证</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="sfz" value=""   placeholder="（必填）请输入证件号码" class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">联系手机</label>
+                        <div class="layui-input-block">
+                            <input type="tel" name="tel" value="" required lay-verify="required"placeholder="（必填）请输入手机" class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">联系地址</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="address" value="" required lay-verify="required"placeholder="（必填）请输入联系地址" class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">分佣比例</label>
+                        <div class="layui-input-inline">
+                            <input type="number" name="fenyong" value="" required lay-verify="required"placeholder="（必填）请输入分佣比例" class="layui-input">
+                        </div>
+                        <div class="layui-form-mid layui-word-aux">%</div>
+                    </div>
+                    <p style="margin-top: 30px;padding-left: 30px;">以下信息选填：</p>
+                    <hr>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">银行账号</label>
+                        <div class="layui-input-block">
+                            <input type="number" name="banknumber" value=""  placeholder="选填" class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">开户行</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="bank" value=""  placeholder="选填" class="layui-input">
+                        </div>
+                    </div>
+
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">状态</label>
+                        <div class="layui-input-block">
+                            <input type="radio" name="status" value="1" title="启用" checked="checked">
+                            <input type="radio" name="status" value="0" title="禁用">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <div class="layui-input-block">
+                            <button class="layui-btn" lay-submit lay-filter="*">保存</button>
+                            <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{/block}
+{block name='js'}
+<script>
+    form.on('radio(is_personnal)', function(data){
+        if(data.value ==1){
+            $('#cardid').hide()
+            $('#sfz').show()
+            $('#name').text('真实姓名')
+        }else{
+            $('#cardid').show()
+            $('#sfz').hide()
+            $('#name').text('公司名称')
+        }
+    });
+</script>
+{/block}

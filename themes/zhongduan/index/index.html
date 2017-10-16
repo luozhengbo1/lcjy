@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="zh">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta content="email=no" name="format-detection" />
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <title>酱酒智造</title>
+    <link rel="short icon" style="image/x-icon" href="images/favicon.ico">
+    <link rel="icon" style="image/x-icon" href="images/favicon.ico">
+    <link rel="stylesheet" type="text/css" href="__CSS__/zhongduan/global.min.css" />
+    <script src="__JS__/zhongduan/firstload.min.js" type="text/javascript" charset="utf-8"></script>
+    <link rel="stylesheet" type="text/css" href="__CSS__/zhongduan/swiper.min.css" />
+</head>
+
+<body>
+<main class="container">
+    <section>
+        <ul id="tab-head" class="tab-head head-wrap" ft-white layout-align="space-between center" layout>
+            <li class="tab-head-active">婚宴</li>
+            <li>商务</li>
+            <li>生日</li>
+            <li>聚会</li>
+            <li>礼品</li>
+        </ul>
+    </section>
+        <div class="swiper-slide">
+            <a href="details.php?id={{ $value.id }}">
+                <img src="__IMAGES__/zhongduan/maotai2.jpg" alt="" />
+                <p class="slide-dec mgt" ellipsis>
+                    <svg class="svg svg-cup">
+                        <use xlink:href="./images/fontsvg.svg#cup" fill="#990000"></use>
+                    </svg>
+                    <span>测试商品</span>
+                </p>
+            </a>
+        </div>
+    <div class="swiper-slide">
+        <a href="details.php?id={{ $value.id }}">
+            <img src="__IMAGES__/zhongduan/maotai2.jpg" alt="" />
+            <p class="slide-dec mgt" ellipsis>
+                <svg class="svg svg-cup">
+                    <use xlink:href="./images/fontsvg.svg#cup" fill="#990000"></use>
+                </svg>
+                <span>测试商品</span>
+            </p>
+        </a>
+    </div>
+    <section  class="swiper-container swiper-tab-list">
+        <div id="swiper-tab-list" class="swiper-wrapper">
+        </div>
+    </section>
+</main>
+<!--<div id="loadtip" class="loadtip pa tl0 wh100" layout-align="center center" layout>
+    <div class="spinner">
+        <div class="double-bounce1"></div>
+        <div class="double-bounce2"></div>
+    </div>
+</div>-->
+<script src="__JS__/zhongduan/swiper.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="__JS__/zhongduan/zepto.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="__JS__/zhongduan/template.js" type="text/javascript" charset="utf-8"></script>
+<script src="__JS__/zhongduan/main.min.js" type="text/javascript" charset="utf-8"></script>
+</body>
+
+</html>

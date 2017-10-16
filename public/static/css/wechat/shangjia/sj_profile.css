@@ -1,0 +1,109 @@
+@charset "utf-8";
+/*移动端适配 width|height|font-size = 视觉稿量出来的值 / 100rem;@lbl*/
+@media screen and (max-width:359px) and (min-width:320px) {
+    html,body{
+        font-size: 50px !important;
+    }
+}
+@media screen and (max-width:374px) and (min-width:360px) {
+    html,body{
+        font-size: 56.25px !important;
+    }
+}
+@media screen and (max-width:413px) and (min-width:375px) {
+   html,body{
+        font-size: 58.5px !important;
+    }
+}
+@media screen and (max-width:639px)  and (min-width:414px){
+   html,body{
+        font-size: 64.6px !important;
+    }
+}@media screen and (min-width:640px) {
+   html,body{
+        font-size: 100px !important;
+    }
+}
+*{
+	font-family: "PingFang SC","Helvetica Neue",Helvetica,"Hiragino Sans GB","Microsoft YaHei","微软雅黑",Arial,sans-serif;
+}
+body{
+	background-color: #f4f4f4;
+}
+.top_01{
+	text-align: center;
+	height: 3.43rem;
+	background-color: #54cfd6;
+	color: #ffffff;
+}
+.com_text{
+	margin-top: 0.69rem;
+	font-size: 0.31rem;
+}
+.com_num{
+	margin-top: 0.1rem;
+	font-size: 1.2rem;
+}
+.mid_01,.mid_02,.mid_03{
+	background-color: #fff;
+	height: 1.1rem;
+
+}
+.yuanxing,.yuanxing_02{
+	width:0.7rem;
+	height:0.7rem;
+	background-color:#54cfd6;
+	border-radius:0.35rem;
+	margin:0.2rem;
+}
+.yuanxing img{
+	margin-top: 0.12rem;
+	margin-left: -0.08rem;
+	width: 0.4rem;
+	height: 0.4rem;
+}
+.mid_01 p,.mid_02 p,.mid_03 p{
+	line-height: 1.1rem;
+	font-size: 0.31rem;
+	margin-left: -0.2rem;
+	color: #333333;
+}
+.chakan{
+	width: 27%;
+}
+.chakan_num{
+	margin-left: -0.1rem;
+}
+.mid_more img{
+	width: 0.4rem;
+	height: 0.4rem;
+	/*margin-top: 0.345rem;*/
+	margin: 0.345rem;
+}
+
+.mid_02{
+	margin-top: 0.21rem;
+}
+.mid_02 .yuanxing_02 img{
+	margin-top: 0.12rem;
+	margin-left: -0.13rem;
+	width: 0.45rem;
+	height: 0.45rem;
+}
+.border_bu{
+	border-top: 1px solid #c9c9c9;
+	display: inline-flex;
+}
+.bottom_text{
+	padding-left: 0.4rem;
+}
+.yuanxing_03{
+	width:0.14rem;
+	height:0.14rem;
+	background-color:#54cfd6;
+	border-radius:0.14rem;
+	margin-top: 0.5rem;
+	margin-left: -0.1rem;
+}
+
+

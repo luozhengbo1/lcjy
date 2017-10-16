@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8" />
+    <title>我的订单</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <link rel="stylesheet" href="__CSS__/wechat/common.css" />
+    <link rel="stylesheet" href="__CSS__/wechat/myorder.css" />
+</head>
+<body>
+<div class="content">
+    {volist name='order_list' id='fo'}
+    <a href="{:url('/wechat/order/detail',['id'=>$fo.id])}">
+        <div class="content-div">
+            <div class="content-title">
+                <ul>
+                    <li class="content-left">共{$fo.num}件商品&nbsp;合计：￥<span>{$fo.amount}</span>(含运费：￥0.00)</li>
+                    <li class="content-right">{$fo.status|get_order_status}</li>
+                </ul>
+            </div>
+            <div class="content-sub">
+                <div class="content-img">
+                    <img  src="{$fo.image}">
+                </div>
+                <div class="content-name">
+
+                    <div>{$fo.title}</div>
+                    <ol>
+                        <li class="price-left">￥<span>{$fo.type|get_order_unit}</span></li>
+                        <li class="price-right">数量：{$fo.num}</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </a>
+    {/volist}
+</div>
+<script type="text/javascript" src="__JS__/wechat/myorder.js" ></script>
+<script type="text/javascript" src="__JS__/wechat/common.js" ></script>
+</body>
+</html>
+
+</html>
+

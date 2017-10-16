@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<link rel="stylesheet" href="css/index.css" />
+		<link rel="stylesheet" type="text/css" href="css/list.css"/>
+	</head>
+
+	<body>
+		<div class="bg_01" id="bg_01">
+
+			<div class="play">
+
+				<video autoplay="" loop="" controls>
+					<source src="css/movie.mp4" type="video/mp4">
+					<source src="movie.ogg" type="video/ogg"> 您的浏览器不支持 HTML5 video 标签。
+				</video>
+			</div>
+
+			<div class="bgs">
+
+				<img src="img/bgs.png" />
+				<div class="header">
+					<div class="logo">
+						<img src="img/logo.png">
+					</div>
+				</div>
+
+				<div class="banner-loop">
+					<ul id="top">
+						<li><img src="img/img9.png"></li>
+						<li><img src="img/img10.png"></li>
+						<li><img src="img/img7.png"></li>
+					</ul>
+					<div id="bottom">
+						<ul id="xia">
+							<a href="#" id="left">上一张</a>
+							<a href="#" id="right">下一张</a>
+							<li><img src="img/img9.png"></li>
+							<li><img src="img/img10.png"></li>
+							<li><img src="img/img7.png"></li>
+						</ul>
+						<div class="imgs">
+							<img src="img/xia_logo.png" />
+						</div>
+						
+						
+					</div>
+
+				</div>
+				
+				
+				<div class="img-bg">
+					
+					<img src="img/div-da.png" />
+				</div>
+
+			</div>
+				
+				<div class="datan" id="testD" onclick="aDisplay()">
+					<a>定制你的专属大坛</a>
+				</div>
+		</div>
+		<!--list页-->
+		<div style="display: none;" class="bg_02" id="bg_02">
+			<div class="header">
+				<div class="logo">
+					<a href="list.html"><img src="img/logo.png"></a>
+				</div>
+			</div>
+
+			<div id="content" class="content1">
+				<div id="fontsec" class="font0">
+					<div class="leftbox">
+						<div id="t1" class="blackfont4">酱酒<br>智造</div>
+					</div>
+					<div class="rightbottle">
+						<div id="t2" class="goldfont4">酱酒<br>智造</div>
+					</div>
+				</div>
+				<button id="rotate" class="buttombtn" onclick="rotate()">正面</button>
+			</div>
+			
+			<div class="back" onclick="bDisplay()">
+				<a><img src="img/back.png"/></a>
+			</div>
+
+			<div class="zhiti">			
+				<div class="shuru">
+					<input id="textinput" class="textinput" type="text" placeholder="点此输入汉字"><br>
+					<button id="font0" class="font0 fontbtn0" onclick="fontset(0)">行楷</button>
+					<button id="font1" class="font1 fontbtn" onclick="fontset(1)">毛笔</button>
+					<button id="font2" class="font2 fontbtn" onclick="fontset(2)">黑体</button>
+					<button id="font3" class="font3 fontbtn" onclick="fontset(3)">宋体</button>
+					<button id="font4" class="font4 fontbtn" onclick="fontset(4)">即墨体</button>
+					<button id="font5" class="font5 fontbtn" onclick="fontset(5)">荔枝体</button>
+					<button id="font6" class="font6 fontbtn" onclick="fontset(6)">柏京体</button>
+					<button id="font7" class="font7 fontbtn" onclick="fontset(7)">良品体</button>
+				</div>
+			</div>
+			
+			<div class="right">
+				<div class="shaoma">
+					<img src="img/saoma.png" />
+				</div>
+				<div class="yuan">
+					<img src="img/y.png" />
+				</div>
+				<div class="footer">
+					<img src="img/footer.png">
+				</div>				
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript" src="js/index.js" ></script>
+	<script>
+			window.onload=function(){
+				var oDiv = document.getElementById("box");
+				var oUl = document.getElementById("top").getElementsByTagName("li");
+				var oBottom = document.getElementById("bottom").getElementsByTagName("li");
+				var oXia = document.getElementById("xia");
+				var nowPic=0;
+				var zIndex= 1;
+				var timer= null;
+				var _left = document.getElementById("left");
+				var _right = document.getElementById("right")
+				oXia.style.width = oBottom.length * oBottom[0].offsetWidth + "px";
+				now();
+				auto();
+				function now(){
+				//大图
+				oUl[nowPic].style["z-index"] = ++zIndex;
+				//缩略图居中（第一个靠左 最后一个靠右）
+				if(nowPic ==0){
+						sport(oXia,{left:0});
+					}else if(nowPic == oBottom.length -1){
+						sport(oXia,{left:-(oBottom.length - 3)*oBottom[0].offsetWidth});
+					}else{
+						sport(oXia,{left:-(nowPic -1)* oBottom[0].offsetWidth});
+					}
+				
+			}
+				function auto(){
+				clearInterval(timer);
+				timer = setInterval(function(){
+					nowPic++;
+					if(nowPic > oUl.length - 1) {
+						nowPic = 0;
+					}
+					now();
+				},3000);
+			}
+				
+			_left.onclick = function(){
+				nowPic--;
+				if (nowPic < 0) {
+					nowPic = oUl.length - 1;
+				}
+				now();
+				auto();
+			};
+			_right.onclick = function(){
+				nowPic++;
+				if (nowPic >= oUl.length) {
+					nowPic = 0;
+				}
+				now();
+				auto();
+			};
+		};
+	</script>
+	<script type="text/javascript">
+			var status1,status2; //展示图正反面状态
+
+			//字体切换和按钮重置
+			function fontset(f) {
+				var fontnum = "font" + f;
+				document.getElementById('fontsec').className = fontnum;
+				document.getElementById(fontnum).blur();
+				for (var i = 0; i < 8; i++) {
+					document.getElementById("font"+i).className = "font" + i + " fontbtn";
+				}
+				document.getElementById(fontnum).className = fontnum + " fontbtn0";
+			}
+
+			//手机键盘确认键联动
+			textinput.onkeydown = function(e){
+				if (e.keyCode == 13) {
+					typesetting();
+					document.getElementById('textinput').blur();
+				}
+			}
+
+			//旋转展示图正反面
+			function rotate() {
+				var btntxt = document.getElementById('rotate').innerHTML;
+				if (btntxt == "正面") {
+					status1 = document.getElementById('t1').className;
+					status2 = document.getElementById('t2').className;
+					document.getElementById('t1').className = "blackfont0";
+					document.getElementById('t2').className = "goldfont0";
+					document.getElementById('content').className = "content0";
+					document.getElementById('rotate').innerHTML = "背面";
+				} else {
+					document.getElementById('t1').className = status1;
+					document.getElementById('t2').className = status2;
+					document.getElementById('content').className = "content1";
+					document.getElementById('rotate').innerHTML = "正面";
+				}
+			}
+
+			//输入文字的排版
+			function typesetting() {
+				var usertext = document.getElementById('textinput').value;
+				var len = usertext.length;
+				if (len > 4 || len < 1) {
+					alert('最多输入4个字');
+				} else {
+					var str;
+					if (len == 1) {
+						str = usertext;
+						document.getElementById('t1').className = "blackfont1";
+						document.getElementById('t2').className = "goldfont1";
+					}
+					if (len == 2) {
+						var str0 = usertext.charAt(0);
+						var str1 = usertext.charAt(1);
+						str = str0 + "<br>" + str1;
+						document.getElementById('t1').className = "blackfont2";
+						document.getElementById('t2').className = "goldfont2";
+					}
+					if (len == 3) {
+						var str0 = usertext.charAt(0);
+						var str1 = usertext.charAt(1);
+						var str2 = usertext.charAt(2);
+						str = str0 + "<br>" + str1 + "<br>" + str2;
+						document.getElementById('t1').className = "blackfont3";
+						document.getElementById('t2').className = "goldfont3";
+					}
+					if (len == 4) {
+						var str0 = usertext.charAt(0);
+						var str1 = usertext.charAt(1);
+						var str2 = usertext.charAt(2);
+						var str3 = usertext.charAt(3);
+						str = str0 + str1 + "<br>" + str2 + str3;
+						document.getElementById('t1').className = "blackfont4";
+						document.getElementById('t2').className = "goldfont4";
+					}
+					document.getElementById('t1').innerHTML = str;
+					document.getElementById('t2').innerHTML = str;
+				}
+				document.getElementById('textinput').value = "";
+			}
+
+		</script>
+		<script type="text/javascript">
+
+function bDisplay()
+{
+
+    var divD = document.getElementById("bg_01");
+    divD.style.display = "block";
+
+    var Detail = document.getElementById("bg_02");
+    Detail.style.display = "none";
+   
+}
+
+function aDisplay()
+{
+    var divD = document.getElementById("bg_01");
+    divD.style.display = "none";
+
+    var Detail = document.getElementById("bg_02");
+    Detail.style.display = "block";
+
+
+}
+</script>
+</html>

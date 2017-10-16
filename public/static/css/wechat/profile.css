@@ -1,0 +1,112 @@
+.content{
+	min-width: 320px;
+	max-width: 640px;
+	margin: auto;
+	height: 500px;
+}
+
+.content .content-bg{
+	float: left;
+	height: 3.3rem;
+	width: 100%;
+	
+}
+.content .content-bg span{
+	display: block;
+	width: 1.75rem;
+	height: 1.75rem;
+	margin: auto;
+	margin-top: 0.48rem;
+}
+
+.content-bg p{
+	display: block;
+	margin-top: 0.27rem;
+	font-size: 0.3rem;
+	color: #333333;
+	text-align: center;
+}
+.content .content-bg img{
+	border-radius: 50%;
+}
+.content-from{
+	float: left;
+	background: #FFFFFF;
+	width: 100%;
+	height: 4.4rem;
+	margin-bottom: 44px;
+}
+.content-from li{
+	line-height: 1.1rem;
+	float: left;
+	width: 100%;
+	height: 1.1rem;
+	border-bottom: 0.01rem solid #D0D0D0;
+}
+.content-from li p{
+	color: #AAAAAA;
+	font-size: 0.3rem;
+	padding-left: 0.2rem;
+	height: 0.3rem;
+	width: 1.5rem;
+	display: block;
+}
+.content-from li a{
+	color: #333333;
+	padding-right: 0.2rem;
+	line-height: 0.5rem;
+	height: 0.5rem;
+	font-size: 0.32rem;
+	float: right;
+}
+.content-from li input{
+	padding-right: 0.2rem;
+	float: right;
+	text-align: right;
+	outline: none;
+	line-height: 0.5rem;
+	height: 0.5rem;
+	font-size: 0.32rem;
+	color: #333333; 
+}
+
+input::-webkit-input-placeholder { /* WebKit browsers */  
+    color:    #333333;  
+}  
+input:-moz-placeholder { /* Mozilla Firefox 4 to 18 */  
+    color:    #333333;     
+}  
+input::-moz-placeholder { /* Mozilla Firefox 19+ */  
+     color:    #333333;    
+}  
+input:-ms-input-placeholder { /* Internet Explorer 10+ */  
+     color:    #333333;      
+}
+
+#tishi{
+	height: 0.5rem;
+	width: 70%;
+	line-height: 0.5rem;
+	float: right;
+}
+
+.content-from li select{
+	margin-right: 0.2rem;
+	outline: none;
+	padding-right: 0.2rem;
+	line-height: 0.5rem;
+	height: 0.5rem;
+	font-size: 0.32rem;
+	float: right;
+}
+button{
+	border: none;
+	display: block;
+	margin: auto;
+	width: 80%;
+	height: 0.88rem;
+	font-size: 0.32rem;
+	background: #D12E39;
+	color: #FFFFFF;
+}
+

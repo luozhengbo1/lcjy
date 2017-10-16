@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>上传二维码</title>
+    <link rel="stylesheet" href="__CSS__/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+    <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="__JS__/layui/css/layui.css" media="all">
+    <link rel="stylesheet" href="__CSS__/tools/qcode/style.css?v=1.0.0">
+
+</head>
+<body>
+<blockquote class="layui-elem-quote" style="font-size: 14px;">
+    <span style="color: red">温馨提示：</span>此处上传您的微信二维码
+</blockquote>
+<div class="container">
+    <div class="qcode">
+        <div class="qcode-upload">
+            <img id="qcode_upload" src="__IMAGES__/default_200.png">
+            <div class="qcode-upbar">
+                <input type="file" name="file" class="layui-upload-file" id="qcode" lay-title="上传二维码">
+                <input type="hidden" id="qcode_url" value="">
+            </div>
+        </div>
+    </div>
+    <div class="post-box">
+        <button class="layui-btn layui-btn-big layui-btn-normal" onclick="post()">获取您的专属宣传页链接</button>
+    </div>
+    <div class="sale_url">
+        <p id="result"></p>
+    </div>
+</div>
+<script src="__JS__/jquery.min.js"></script>
+<script src="__JS__/layui/lay/dest/layui.all.js"></script>
+<script>
+    var layer = layui.layer,
+        element = layui.element(),
+        form = layui.form();
+
+    layui.upload({
+        url: "/api/upload/upload",
+        type: 'image',
+        ext: 'jpg|png|gif|bmp|jpeg',
+        success: function (data) {
+            if (data.error === 0) {
+                $('#qcode_upload').attr('src',data.url);
+                $('#qcode_url').val(data.url);
+
+            } else {
+                layer.msg(data.message);
+            }
+        }
+    });
+
+    function post() {
+        var qcode_url = $('#qcode_url').val();
+        if(qcode_url !==null && qcode_url!==''){
+            $.ajax({
+                type:"POST",
+                url:'/tools/qcode/create',
+                data:{'qcode_url':qcode_url},
+                success:function (res) {
+                    layer.msg(res.msg);
+                    if(res.code == 0){
+                        window.location.href=res.url//跳转到活动页面
+//                    $('#result').text(res.url)
+                    }
+                }
+            })
+        } else{
+            layer.msg('请先上传二维码');
+        }
+
+    }
+</script>
+</body>
+</html>

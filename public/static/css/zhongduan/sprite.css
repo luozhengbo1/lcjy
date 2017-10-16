@@ -1,0 +1,330 @@
+/*
+Icon classes can be used entirely standalone. They are named after their original file names.
+
+Example usage in HTML:
+
+`display: block` sprite:
+<div class="icon-home"></div>
+
+To change `display` (e.g. `display: inline-block;`), we suggest using a common CSS class:
+
+// CSS
+.icon {
+  display: inline-block;
+}
+
+// HTML
+<i class="icon icon-home"></i>
+*/
+.icon-line-fr {
+  background-image: url(~assets/images/sprite.png);
+  background-position: 0px 0px;
+  width: 114px;
+  height: 1px;
+}
+.icon-line-fl {
+  background-image: url(~assets/images/sprite.png);
+  background-position: 0px -1px;
+  width: 114px;
+  height: 1px;
+}
+.icon-rgsj {
+  background-image: url(~assets/images/sprite.png);
+  background-position: 0px -2px;
+  width: 4px;
+  height: 3px;
+}
+.icon-triangle-fr {
+  background-image: url(~assets/images/sprite.png);
+  background-position: 0px -5px;
+  width: 9px;
+  height: 7px;
+}
+.icon-triangle-fl {
+  background-image: url(~assets/images/sprite.png);
+  background-position: 0px -12px;
+  width: 9px;
+  height: 7px;
+}
+.icon-hook {
+  background-image: url(~assets/images/sprite.png);
+  background-position: 0px -19px;
+  width: 13px;
+  height: 13px;
+}
+.icon-phone {
+  background-image: url(~assets/images/sprite.png);
+  background-position: 0px -32px;
+  width: 22px;
+  height: 14px;
+}
+.icon-diamond {
+  background-image: url(~assets/images/sprite.png);
+  background-position: 0px -46px;
+  width: 23px;
+  height: 17px;
+}
+.icon-user {
+  background-image: url(~assets/images/sprite.png);
+  background-position: 0px -63px;
+  width: 15px;
+  height: 17px;
+}
+.icon-u2room-diamond {
+  background-image: url(~assets/images/sprite.png);
+  background-position: 0px -80px;
+  width: 23px;
+  height: 20px;
+}
+.icon-gift-gold {
+  background-image: url(~assets/images/sprite.png);
+  background-position: 0px -100px;
+  width: 25px;
+  height: 21px;
+}
+.icon-notice {
+  background-image: url(~assets/images/sprite.png);
+  background-position: 0px -121px;
+  width: 28px;
+  height: 23px;
+}
+.icon-close_hover {
+  background-image: url(~assets/images/sprite.png);
+  background-position: 0px -144px;
+  width: 24px;
+  height: 24px;
+}
+.icon-close-lottery_hover {
+  background-image: url(~assets/images/sprite.png);
+  background-position: 0px -168px;
+  width: 24px;
+  height: 24px;
+}
+.icon-close-lottery {
+  background-image: url(~assets/images/sprite.png);
+  background-position: 0px -192px;
+  width: 24px;
+  height: 24px;
+}
+.icon-close {
+  background-image: url(~assets/images/sprite.png);
+  background-position: 0px -216px;
+  width: 24px;
+  height: 24px;
+}
+.icon-h-gift {
+  background-image: url(~assets/images/sprite.png);
+  background-position: 0px -240px;
+  width: 25px;
+  height: 25px;
+}
+.icon-pilive {
+  background-image: url(~assets/images/sprite.png);
+  background-position: 0px -265px;
+  width: 26px;
+  height: 26px;
+}
+.icon-pfivestar {
+  background-image: url(~assets/images/sprite.png);
+  background-position: 0px -291px;
+  width: 26px;
+  height: 26px;
+}
+.icon-pdiamond {
+  background-image: url(~assets/images/sprite.png);
+  background-position: 0px -317px;
+  width: 26px;
+  height: 26px;
+}
+.icon-pwd {
+  background-image: url(~assets/images/sprite.png);
+  background-position: 0px -343px;
+  width: 15px;
+  height: 26px;
+}
+.icon-appclose {
+  background-image: url(~assets/images/sprite.png);
+  background-position: 0px -369px;
+  width: 28px;
+  height: 28px;
+}
+.icon-popularity-two {
+  background-image: url(~assets/images/sprite.png);
+  background-position: 0px -397px;
+  width: 20px;
+  height: 29px;
+}
+.icon-popularity-three {
+  background-image: url(~assets/images/sprite.png);
+  background-position: 0px -426px;
+  width: 20px;
+  height: 29px;
+}
+.icon-popularity-first {
+  background-image: url(~assets/images/sprite.png);
+  background-position: 0px -455px;
+  width: 20px;
+  height: 29px;
+}
+.icon-room-diamond {
+  background-image: url(~assets/images/sprite.png);
+  background-position: 0px -484px;
+  width: 37px;
+  height: 29px;
+}
+.icon-qq_hover {
+  background-image: url(~assets/images/sprite.png);
+  background-position: 0px -513px;
+  width: 28px;
+  height: 31px;
+}
+.icon-qq {
+  background-image: url(~assets/images/sprite.png);
+  background-position: 0px -544px;
+  width: 28px;
+  height: 31px;
+}
+.icon-wx_hover {
+  background-image: url(~assets/images/sprite.png);
+  background-position: 0px -575px;
+  width: 28px;
+  height: 31px;
+}
+.icon-wx {
+  background-image: url(~assets/images/sprite.png);
+  background-position: 0px -606px;
+  width: 28px;
+  height: 31px;
+}
+.icon-topphone {
+  background-image: url(~assets/images/sprite.png);
+  background-position: 0px -637px;
+  width: 45px;
+  height: 31px;
+}
+.icon-sina {
+  background-image: url(~assets/images/sprite.png);
+  background-position: 0px -668px;
+  width: 28px;
+  height: 31px;
+}
+.icon-sina_hover {
+  background-image: url(~assets/images/sprite.png);
+  background-position: 0px -699px;
+  width: 28px;
+  height: 31px;
+}
+.icon-logo {
+  background-image: url(~assets/images/sprite.png);
+  background-position: 0px -730px;
+  width: 38px;
+  height: 33px;
+}
+.icon-u2tab-live-cur {
+  background-image: url(~assets/images/sprite.png);
+  background-position: 0px -763px;
+  width: 40px;
+  height: 40px;
+}
+.icon-tab_me_p {
+  background-image: url(~assets/images/sprite.png);
+  background-position: 0px -803px;
+  width: 40px;
+  height: 40px;
+}
+.icon-tab_me {
+  background-image: url(~assets/images/sprite.png);
+  background-position: 0px -843px;
+  width: 40px;
+  height: 40px;
+}
+.icon-u2tab-user {
+  background-image: url(~assets/images/sprite.png);
+  background-position: 0px -883px;
+  width: 40px;
+  height: 40px;
+}
+.icon-btnlive {
+  background-image: url(~assets/images/sprite.png);
+  background-position: 0px -923px;
+  width: 40px;
+  height: 40px;
+}
+.icon-qd-gold {
+  background-image: url(~assets/images/sprite.png);
+  background-position: 0px -963px;
+  width: 49px;
+  height: 40px;
+}
+.icon-tab_live {
+  background-image: url(~assets/images/sprite.png);
+  background-position: 0px -1003px;
+  width: 40px;
+  height: 40px;
+}
+.icon-tab_live_p {
+  background-image: url(~assets/images/sprite.png);
+  background-position: 0px -1043px;
+  width: 40px;
+  height: 40px;
+}
+.icon-u2tab-live {
+  background-image: url(~assets/images/sprite.png);
+  background-position: 0px -1083px;
+  width: 40px;
+  height: 40px;
+}
+.icon-u2tab-user-cur {
+  background-image: url(~assets/images/sprite.png);
+  background-position: 0px -1123px;
+  width: 40px;
+  height: 40px;
+}
+.icon-security-tail-pic {
+  background-image: url(~assets/images/sprite.png);
+  background-position: 0px -1163px;
+  width: 39px;
+  height: 42px;
+}
+.icon-pm-user-nav2 {
+  background-image: url(~assets/images/sprite.png);
+  background-position: 0px -1205px;
+  width: 50px;
+  height: 50px;
+}
+.icon-pm-user-nav1 {
+  background-image: url(~assets/images/sprite.png);
+  background-position: 0px -1255px;
+  width: 50px;
+  height: 50px;
+}
+.icon-pm-user-nav3 {
+  background-image: url(~assets/images/sprite.png);
+  background-position: 0px -1305px;
+  width: 50px;
+  height: 50px;
+}
+.icon-u2tab-lottery {
+  background-image: url(~assets/images/sprite.png);
+  background-position: 0px -1355px;
+  width: 58px;
+  height: 58px;
+}
+.icon-selector_oval_main {
+  background-image: url(~assets/images/sprite.png);
+  background-position: 0px -1413px;
+  width: 58px;
+  height: 58px;
+}
+.icon-wxpayment {
+  background-image: url(~assets/images/sprite.png);
+  background-position: 0px -1471px;
+  width: 140px;
+  height: 60px;
+}
+.icon-zfbpayment {
+  background-image: url(~assets/images/sprite.png);
+  background-position: 0px -1531px;
+  width: 140px;
+  height: 60px;
+}

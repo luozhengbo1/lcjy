@@ -1,0 +1,180 @@
+@charset "utf-8";
+*{
+	font-family: "PingFang SC","Helvetica Neue",Helvetica,"Hiragino Sans GB","Microsoft YaHei","微软雅黑",Arial,sans-serif;
+	font-size: 0.3rem;
+	color: #333333;
+}
+body{
+	background-color: #f4f4f4;
+}
+.top{
+	height: 2.5rem;
+	background-color: #ffffff;
+	border-bottom: 1px solid #ebebeb;
+	margin-bottom: 0.18rem;
+}
+.top_text{
+	margin-top: 0.38rem;
+	margin-bottom: 0.2rem;
+	padding-left: 0.45rem;
+}
+.top_text p{
+	font-size: 0.32rem;
+}
+.fangshi_div{
+	height: 1.23rem;
+}
+.weixin img{
+	width: 0.49rem;
+	height: 0.4rem;
+	margin-right: 0.15rem;
+}
+.bank img{
+	width: 0.47rem;
+	height: 0.33rem;
+	margin-right: 0.15rem;
+}
+.weixin,.bank{
+	text-align: center;
+}
+.weixin_bk,.bank_bk{
+	height: 1.2rem;
+	border: 1px solid #cfcfcf;
+	border-radius: 7px;
+	width: 2.7rem;
+	/*margin-left: 0.37rem;*/
+	padding-top: 0.2rem;
+}
+.weixin_bk{
+	float: right;
+	margin-right: -0.12rem;
+}
+.bank_bk{
+	float: left;
+	margin-left: -0.12rem;
+	padding-top: 0.25rem;
+}
+.bank_01{
+	line-height: 0.33rem;
+}
+.weixin_01,.bank_01{
+	display: inline-flex;
+}	
+
+.weixin_tishi,.bank_tishi{
+	font-size: 0.24rem;
+	color: #aaaaaa;
+}
+.border_change{
+	border: 1px solid #35BAC2;
+}
+.middle{
+	height: 3.2rem;
+	background-color: #ffffff;
+	margin-bottom: 0.3rem;
+}
+.mid_text{
+	margin-top: 0.28rem;
+	margin-bottom: 0.35rem;
+}
+.mid_text p{
+	color: #aaaaaa;
+	font-size: 0.29rem;
+}
+.mid_num p{
+	color: #333333;
+	font-size: 0.7rem;
+}
+.mid_num input{
+	width:85%;
+	color: #35BAC2;
+	font-size: 0.7rem;
+	padding-left: 0.15rem;
+}
+.mid_img img{
+	width: 0.43rem;
+	height: 0.43rem;
+	margin-left: -0.1rem;
+	margin-top: 0.3rem;
+}
+.mid_jine{
+	margin-bottom: 0.12rem;
+}
+.mid_yue{
+	border-top: 1px solid #dddddd;
+	padding-top: 0.27rem;
+}
+.yue_num p{
+	color: #aaaaaa;
+	font-size: 0.28rem;
+}
+.yue_text{
+	float: right;
+	text-align: right;
+}
+.yue_text p{
+	color: #35BAC2;
+	font-size: #0.28rem;
+}
+.bottom{
+	margin-bottom: ;
+}
+.bottom_jinggao{
+	display: inline-flex;
+}
+.bottom_jinggao img{
+	width: 0.36rem;
+	height: 0.36rem;
+}
+.bottom_jinggao p{
+	color: #35BAC2;
+	font-size: 0.26rem;
+	margin-left: 0.14rem;
+}
+.bottom_text{
+	margin-top: 0.1rem;
+}
+.bottom_text p{
+	color: #858585;
+	font-size: 0.26rem;
+}
+.bottom_but{
+	margin-top: 1rem;
+}
+.border_but{
+	margin: 0 auto;
+	width: 85%;
+	background-color: #35BAC2;
+	text-align: center;
+	padding: 0.2rem 0;
+}
+.border_but p{
+	color: #ffffff;
+	font-size: 0.28rem;
+}
+/*移动端适配 width|height|font-size = 视觉稿量出来的值 / 100rem;@lbl*/
+@media screen and (max-width:359px) and (min-width:320px) {
+    html,body{
+        font-size: 50px !important;
+    }
+}
+@media screen and (max-width:374px) and (min-width:360px) {
+    html,body{
+        font-size: 56.25px !important;
+    }
+}
+@media screen and (max-width:413px) and (min-width:375px) {
+   html,body{
+        font-size: 58.5px !important;
+    }
+}
+@media screen and (max-width:639px)  and (min-width:414px){
+   html,body{
+        font-size: 64.6px !important;
+    }
+}
+@media screen and (min-width:640px) {
+   html,body{
+        font-size: 100px !important;
+    }
+}

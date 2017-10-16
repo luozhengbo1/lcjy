@@ -1,0 +1,157 @@
+@charset "utf-8";
+*{
+	font-family: "PingFang SC","Helvetica Neue",Helvetica,"Hiragino Sans GB","Microsoft YaHei","微软雅黑",Arial,sans-serif;
+	font-size: 0.3rem;
+	color: #333333;
+}
+body {
+	margin: 0;
+	padding: 0;
+	background: #ededed;
+	overflow: hidden;
+	background-color: #ededed;
+}
+/*ul wrapper*/
+#iSlider-wrapper {
+	
+	margin-top: -0.9rem;
+	height: 100%;
+	width: 100%;
+	overflow: hidden;
+	position: absolute;
+}
+#iSlider-wrapper ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	height: 100%;
+	overflow: hidden;
+}
+#iSlider-wrapper li {
+	position: absolute;
+	margin: 0;
+	padding: 0;
+	height: 100%;
+	overflow: hidden;
+	display: -webkit-box;
+	-webkit-box-pack: center;
+	-webkit-box-align: center;
+	list-style: none;
+	box-shadow: 6px 17px 32px -7px #000;
+	background-color: #ffffff;
+}
+#iSlider-wrapper li img {
+	/*max-width: 100%;*/
+	/*max-height: 100%;*/
+}
+/*产品CSS*/
+.xianzhi_div{
+	width: 100%;
+	height: 100%;
+	background-color: #ffffff;
+	margin: 0 auto;
+	/*margin-top: 0.6rem;*/
+	/*box-shadow:0 13px 42px -11px #000;*/
+}
+.top_01{
+	text-align: center;
+	margin-top: 0.6rem;
+}
+.title h1{
+	font-size: 0.4rem;
+	color: #333333;
+}
+.border_01,.border_02{
+	border-top: 1px solid #d3d3d3;
+	margin-top: 0.15rem;
+}
+.pro_img{
+	margin-top: 0.4rem;
+}
+.pro_img img{
+	max-width: 4.6rem;
+	max-height: 6.3rem;
+	margin: 0 auto;
+}
+/*“选此模板”按钮CSS*/
+.but_div{
+	margin-top: 0.6rem;
+}
+.pick_but{
+	margin: 0 auto;
+	width: 85%;
+	background-color: #333333;
+	text-align: center;
+	padding: 0.2rem 0;
+	border-radius: 0.1rem;
+}
+.pick_but p{
+	color: #ffffff;
+	font-size: 0.28rem;
+}
+/*底部导航栏*/
+.bottom_nav{
+	position: fixed;
+	bottom: 0;
+	width: 100%;
+	height: 1rem;
+	background-color: #333333;
+	text-align: center;
+}
+.bottom_nav p{
+	margin-top: 0.3rem;
+	color: #c9c9c9;
+	font-size: 0.3rem;
+}
+.bg_change{
+	background: url(../img/daohang-choose.png) center no-repeat;
+	background-size:1.45rem 1rem;
+}
+.bg_change p{
+	color: #ffffff;
+}
+.hunyan,.shangwu,.shengri,.juhui,.lipin{
+	float: left;
+	width: 20%;
+	height: 1rem;
+}
+
+.hunyan p,.shangwu p,.shengri p,.juhui p,.lipin p{
+	
+}
+/*移动端适配 width|height|font-size = 视觉稿量出来的值 / 100rem;@lbl*/
+
+@media screen and (max-width:359px) and (min-width:320px) {
+	html,
+	body {
+		font-size: 50px !important;
+	}
+}
+
+@media screen and (max-width:374px) and (min-width:360px) {
+	html,
+	body {
+		font-size: 56.25px !important;
+	}
+}
+
+@media screen and (max-width:413px) and (min-width:375px) {
+	html,
+	body {
+		font-size: 58.5px !important;
+	}
+}
+
+@media screen and (max-width:639px) and (min-width:414px) {
+	html,
+	body {
+		font-size: 64.6px !important;
+	}
+}
+
+@media screen and (min-width:640px) {
+	html,
+	body {
+		font-size: 100px !important;
+	}
+}

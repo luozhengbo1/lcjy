@@ -1,0 +1,124 @@
+{extend name="base" /}
+{block name="body"}
+<div class="layui-body">
+    <!--tab标签-->
+    <div class="layui-tab layui-tab-brief">
+        <ul class="layui-tab-title">
+            <li class=""><a href="{:url('admin/order/index')}">订单管理</a></li>
+            <li class="layui-this">创建订单</li>
+        </ul>
+        <div class="layui-tab-content">
+            <div class="layui-tab-item layui-show">
+                <form class="layui-form form-container" action="{:url('admin/order/save')}" method="post">
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">订单主题</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="title" value="" required lay-verify="required"
+                                   placeholder="（必填）请输入活动名称" class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">关联产品</label>
+                        <div class="layui-input-inline">
+                            <select name="goods_id" lay-filter='goods_id' lay-verify="required" lay-search=""
+                                    id="goods_id">
+                                <option value="">直接选择或搜索选择</option>
+                                {volist name='goods_list' id='fo'}
+                                <option value="{$fo.id}">{$fo.title}</option>
+                                {/volist}
+                            </select>
+                        </div>
+                        <div class="layui-form-mid layui-word-aux">(可直接搜索)</div>
+                    </div>
+
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">原浆类型</label>
+                        <div class="layui-input-inline">
+                            <select name="type" lay-filter='type' lay-verify="required" id="type">
+                                    <option value="">选择原浆类型</option>
+                                {volist name='goods_type_list' id='vo'}
+                                <option value="{$vo.id}">{$vo.name}</option>
+                                {/volist}
+                            </select>
+                            <input type="hidden" value="" id="price">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">预订数量</label>
+                        <div class="layui-input-inline">
+                            <input type="number" id='num' name="num" value="" placeholder="（必填）必须为整数"
+                                   class="layui-input">
+                        </div>
+                        <div class="layui-form-mid layui-word-aux">/瓶</div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">订单总金额</label>
+                        <div class="layui-input-inline" style="display: none">
+                            <input type="hidden" name="amount" id="amount" value="" placeholder="（自动生成）"
+                                   class="layui-input">
+                        </div>
+                        <div class="layui-form-mid layui-word-aux">
+                            ￥ <span id="amountshow" style="font-size: 18px;color: red">0</span> 元
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">缩略图</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="image" value="" placeholder="（必填）请上传缩略图"
+                                   class="layui-input layui-input-inline" id="thumb">
+                            <input type="file" name="file" class="layui-upload-file">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <div class="layui-input-block">
+                            <button class="layui-btn" lay-submit lay-filter="*">生成订单</button>
+                            <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{/block}
+{block name='js'}
+<script>
+    var goods_id = '';
+    var type = '';
+    var price = 0;
+    layui.use('form', function () {
+        var form = layui.form();
+        form.on('select(goods_id)', function (data) {
+            goods_id = data['value'];
+        });
+        form.on('select(type)', function (data) {
+            type = data['value'];
+            $.ajax({
+                'type': 'GET',
+                'data': {'id': type},
+                'url': '/admin/order/getGoodsPrice',
+                error: function () {
+                    layer.msg('单价获取失败，请重新选择')
+                },
+                success: function (res) {
+                    price = res['price'];
+                    $('#num').val('');
+                    $('#amountshow').text('0')
+                }
+            });
+        });
+    });
+
+    $('#num').change(function () {
+        var num = $('#num').val()
+        if (num <= 0) {
+            layer.msg('数量格式不对,请重新输入')
+            $('#num').val('');
+        }
+        var amount = price * num;
+        $('#amount').val(amount)
+        $('#amountshow').text(amount + '.00')
+    })
+
+</script>
+{/block}

@@ -1,0 +1,99 @@
+{extend name="base" /}
+{block name="body"}
+<div class="layui-body">
+    <!--tab标签-->
+    <div class="layui-tab layui-tab-brief">
+        <ul class="layui-tab-title">
+            <li class=""><a href="{:url('admin/dealer/index')}">经销商管理</a></li>
+            <li class="layui-this">经销商信息</li>
+        </ul>
+        <div class="layui-tab-content">
+            <div class="layui-tab-item layui-show">
+                <fieldset class="layui-elem-field layui-field-title">
+                    <legend>{$info.name} - 基本信息</legend>
+                </fieldset>
+                <blockquote class="layui-elem-quote">
+                    <p>上级经销商：{if condition = '$info.fid eq 0'}无{else}{$info.fid|get_dealer_name}{/if}</p>
+                  {if condition='$info.is_personnal eq 1'}
+                    <p>真实姓名：{$info.name}</p>
+                    <p>身份证号：{$info.sfz}</p>
+
+                    {else/}
+                    <p>公司名称：{$info.name}</p>
+                    <p>信用代码：{$info.cardid}</p>
+                    {/if}
+                    <p>银行账号：{$info.banknumber} （开户行：{$info.bank}）</p>
+                    <p>分佣比例：{$info.fenyong}</p>
+                    <p>当前佣金：{$info.amount}</p>
+                    <p>联系地址：{$info.address}</p>
+                    <p>联系电话：{$info.tel}</p>
+                    <p>分销入口：
+                        <a href="http://z.j9zz.com/index.php?qrcode_id={$info.id}" target="_blank" id="fxurl">http://z.j9zz.com/index.php?qrcode_id={$info.id}</a>
+                        <button class="layui-btn layui-btn-mini" onclick="copy()">点击复制</button>
+                    </p>
+                    <p>当前状态：{if condition = '$info.status eq 0'}停用{else}正常{/if}</p>
+                </blockquote>
+            </div>
+        </div>
+        <div class="layui-tab-content">
+            <div class="layui-tab-item layui-show">
+                <form class="layui-form layui-form-pane" action="{:url('admin/order/index')}" method="get">
+                    <div class="layui-inline">
+                        <label class="layui-form-label">关键词</label>
+                        <div class="layui-input-inline">
+                            <input type="text" name="keyword" value="" placeholder="订单号|主题" class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-inline">
+                        <button class="layui-btn">搜索</button>
+                    </div>
+                </form>
+                <hr>
+
+                <table class="layui-table">
+                    <thead>
+                    <tr>
+                        <th style="width: 30px;">ID</th>
+                        <th>订单号</th>
+                        <th>主题</th>
+                        <!--<th>购买用户</th>-->
+                        <th>订单金额</th>
+                        <th>获得佣金</th>
+                        <th>付款时间</th>
+                        <th>订单来源</th>
+                        <th>订单状态</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {volist name='order_list' id='so'}
+                 <tr>
+                     <td>{$so.id}</td>
+                     <td>{$so.trade_no}</td>
+                     <td>{$so.title}</td>
+                     <td>{$so.amount}</td>
+                     <td>{$so.fenyong}</td>
+                     <td>{$so.paid_time|date='y-m-d H:i:s',###}</td>
+                     {if condition = "$so.dealer_id eq $info.id"}
+                        <td>直接销售</td>
+                     {else/}
+                     <td>{$so.dealer_id|get_dealer_name}</td>
+                     {/if}
+                     <td>{$so.status|get_fenyong_status}</td>
+                 </tr>
+                    {/volist}
+                    </tbody>
+                </table>
+                <!--分页-->
+            </div>
+        </div>
+    </div>
+</div>
+{/block}
+{block name='js'}
+<script>
+   function copy() {
+       layer.msg('已复制到粘贴板')
+       $('#fxurl').text().clone();
+   }
+</script>
+{/block}

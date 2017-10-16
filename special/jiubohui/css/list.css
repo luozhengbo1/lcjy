@@ -1,0 +1,297 @@
+*{
+	margin: 0; padding: 0;
+}
+
+@font-face {
+	font-family:xingkai;src:url(../fonts/xingkai.ttf) format('truetype');
+}
+
+@font-face {
+	font-family:maobi;src:url(../fonts/maobi.ttf) format('truetype');
+}
+
+@font-face {
+	font-family:jimo;src:url(../fonts/jimo.ttf) format('truetype');
+}
+
+@font-face {
+	font-family:liangpin;src:url(../fonts/liangpin.ttf) format('truetype');
+}
+
+@font-face {
+	font-family:heilizhi;src:url(../fonts/heilizhi.ttf) format('truetype');
+}
+
+@font-face {
+	font-family:bojing;src:url(../fonts/bojing.ttf) format('truetype');
+}
+
+@font-face {
+	font-family:songti;src:url(../fonts/songti.ttf) format('truetype');
+}
+
+/*@font-face {
+	font-family:youran;src:url(../fonts/youran.ttf) format('truetype');
+}*/
+
+.bg_02 {
+	position: relative;
+	float: left;
+	width: 1920px;
+	height: 1080px;
+	background: url(../img/bg-2.jpg) no-repeat 0 0;
+}
+
+.bg_02 .header{
+	width: 1920px;
+	height: auto;
+}
+
+.bg_02 .header img{
+	margin-top: 30px;
+	margin-left: 35px;
+}
+
+.content1{
+	float: left;
+	margin-top: 50px;
+	margin-left: 70px;
+	width: 798px;
+	height: 798px;
+	background-image: url(../img/biankuang.png);
+}
+
+.content0{
+	float: left;
+	margin-top: 50px;
+	margin-left: 70px;
+	width: 798px;
+	height: 798px;
+	background-image: url(../img/biankuang0.png);
+}
+
+.back{
+	position: absolute;
+	left: 80px;
+	top: 960px;
+}
+.anli{
+	margin-top: 16px;
+	margin-left: 3px;
+}
+
+.zhiti{
+	float: left;
+	margin-left: 40px;
+	width: 550px;
+	height: 860px;
+}
+
+.shuru{
+	margin-top: 297px;
+	text-align: center;
+}
+
+.textinput{
+	outline: none;
+	width: 400px;
+	font-size: 46px;
+	text-align: center;
+	border: none;
+	background: none;
+	border-bottom: 3px solid #8a8a8a;
+}
+
+.textbutton{
+	margin-top: 50px;
+	background-image: url(../img/box.png);
+	background-color: transparent;
+    border: none;
+    width: 381px;
+    height: 123px;
+    text-align: center;
+    font-size: 30px;
+    color: #FFFFFF;
+    display: inline-block;
+}
+
+.buttombtn{
+	position: relative;
+	left: 280px;
+	top: 400px;
+	background-image: url(../img/fanye.png);
+	background-color: transparent;
+    border: none;
+    width: 200px;
+    height: 73px;
+    text-align: center;
+    font-size: 30px;
+    color: #FFFFFF;
+    display: inline-block;
+    outline: none;
+}
+
+.fontbtn{
+	margin-top: 30px;
+	background-image: url(../img/fanye.png);
+	background-color: transparent;
+    border: none;
+    width: 200px;
+    height: 73px;
+    text-align: center;
+    font-size: 25px;
+    color: #FFFFFF;
+    display: inline-block;
+}
+
+.fontbtn0{
+	margin-top: 30px;
+	background-image: url(../img/fanye0.png);
+	background-color: transparent;
+    border: none;
+    width: 200px;
+    height: 73px;
+    text-align: center;
+    font-size: 25px;
+    color: #FFFFFF;
+    display: inline-block;
+}
+
+.biaoti{
+	position: relative;
+	line-height: 114px;
+	font-size: 30px;
+	width: 358px;
+	height: 114px;
+	margin-top: 108px;
+	margin-left: 74px;
+}
+
+.biaoti span{
+	left: 100px;
+	position: absolute;
+	color: #FFFFFF;
+	
+}
+
+.right{
+	float: left;
+	width: 450px;
+}
+
+.shaoma{
+	margin-top: 64px;
+}
+
+.font0{
+	font-family: xingkai;
+}
+
+.font1{
+	font-family: maobi;
+}
+
+.font2{
+	font-family: Simhei, "黑体", sans-serif;
+}
+
+.font3{
+	font-family: songti;
+}
+
+.font4{
+	font-family: jimo;
+}
+
+.font5{
+	font-family: heilizhi;
+}
+
+.font6{
+	font-family: bojing;
+}
+
+.font7{
+	font-family: liangpin;
+}
+
+.leftbox{
+	position: relative;
+	left: 318px;
+	top: 265px;
+	width: 110px;
+	height: 110px;
+}
+
+.rightbottle{
+	position: relative;
+	left: 515px;
+	top: 270px;
+	width: 160px;
+	height: 160px;
+}
+
+.blackfont0{
+	display: none;
+}
+
+.goldfont0{
+	display: none;
+}
+
+.blackfont1{
+	text-align: center;
+	font-size: 110px;
+}
+
+.goldfont1{
+	text-align: center;
+	font-size: 160px;
+	background: url(../img/fontbg.jpg) no-repeat center;
+	background-size: 140px 100%;
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent
+}
+
+.blackfont2{
+	text-align: center;
+	font-size: 50px;
+}
+
+.goldfont2{
+	text-align: center;
+	font-size: 80px;
+	background: url(../img/fontbg.jpg) no-repeat center;
+	background-size: 70px 100%;
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent
+}
+
+.blackfont3{
+	text-align: center;
+	font-size: 35px;
+}
+
+.goldfont3{
+	text-align: center;
+	font-size: 60px;
+	background: url(../img/fontbg.jpg) no-repeat center;
+	background-size: 60px 100%;
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent
+}
+
+.blackfont4{
+	text-align: center;
+	font-size: 50px;
+}
+
+.goldfont4{
+	text-align: center;
+	font-size: 70px;
+	background: url(../img/fontbg.jpg) no-repeat center;
+	background-size: 140px 100%;
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent
+}
+

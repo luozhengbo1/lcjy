@@ -1,0 +1,15 @@
+.content .content-bg{
+    float: left;
+    height: 2.11rem;
+    width: 100%;
+}
+
+.fahuozhong{
+    background-color: #62acf2;
+}
+.yishouhuo{
+    background-color: #73ce64;
+}
+.shengchanzhong{
+    background-color: #fa9c48;
+}

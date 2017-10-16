@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title>修改个人信息</title>
+    <link rel="stylesheet" href="__CSS__/wechat/common.css" />
+    <link rel="stylesheet" href="__CSS__/wechat/profile.css" />
+
+</head>
+
+<body>
+<div class="content">
+    <div class="content-bg">
+		<span>
+			<img src="{$userinfo.avatar}">
+		</span>
+        <p>{$userinfo.username}</p>
+    </div>
+    <form>
+        <ul class="content-from">
+            <li>
+                <p>真实姓名</p>
+                <input id="username" type="text"  value="{$userinfo.username}" placeholder="{$userinfo.username}" />
+            </li>
+            <li>
+                <p>性别</p>
+                <select>
+                    {if condition='$userinfo.sex eq 1'}
+                    <option selected="selected">男</option>
+                    <option>女</option>
+                    {else/}
+                    <option>男</option>
+                    <option selected="selected">女</option>
+                    {/if}
+                </select>
+            </li>
+            <li>
+                <p>电话</p>
+                <input id="mobile" type="text" value="{$userinfo.mobile}" placeholder="请输入电话" />
+            </li>
+            <li>
+                <p>城市</p>
+                <input id="city" type="text" value="{$userinfo.city}" placeholder="请输入城市" />
+            </li>
+        </ul>
+        <button id="sub_mit">保存</button>
+    </form>
+</div>
+<script type="text/javascript" src="__JS__/wechat/common.js" ></script>
+<script type="text/javascript" src="__JS__/jquery.min.js"></script>
+<script src="__JS__/layui/lay/dest/layui.all.js"></script>
+<script>
+    $('#username').change(function() {
+        var myreg = /^[\u4e00-\u9fa5]{2,5}$/;
+        if(!myreg.test($(this).val())) {
+          layer.msg('姓名格式不正确')
+            $(this).val('');
+        }
+    })
+    $('#mobile').change(function() {
+        var age = /^[1][3,4,5,7,8][0-9]{9}$/;
+        if(!age.test($(this).val())) {
+            layer.msg('电话号码格式不正确')
+            $(this).val('');
+        }
+    })
+    $('#city').change(function() {
+        var myreg = /^[\u4e00-\u9fa5]{2,10}$/;
+        if(!myreg.test($(this).val())) {
+            layer.msg('城市格式不正确')
+            $(this).val('');
+        }
+    })
+</script>
+</body>
+</html>

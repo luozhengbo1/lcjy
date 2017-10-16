@@ -1,0 +1,76 @@
+@charset "UTF-8";
+
+/*author 'Torans';*/
+
+.title{
+    margin-top: 50px;
+    font-size:20px;
+    font-weight: bolder;
+}
+
+/*重构样式*/
+.list-group-item.active, .list-group-item.active:focus, .list-group-item.active:hover{
+    background-color: #b92807;
+    border-color: #b53011;
+}
+.list-group-item.active .list-group-item-text, .list-group-item.active:focus .list-group-item-text, .list-group-item.active:hover .list-group-item-text {
+    color: #ffffff;
+}
+.list-group-item:first-child,.list-group-item:last-child {
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+}
+.btn{
+    border-radius: 0px;
+}
+
+.form-box{padding-bottom: 40px;}
+.form-box .input-group{
+    padding-bottom: 8px;
+}
+.right{float: right}
+
+.list-group-item>div{
+    padding:0;
+}
+.list-group-item>div:first-child{
+    padding-right: 20px;
+}
+
+/**/
+.order_list{
+	padding: 0px;
+}
+.orderImg{
+	padding-left: 10px;
+}
+.order_info p{
+    color: #888888;
+}
+.thumb{
+	width: 100%;
+	height: inherit;
+}
+.status{
+    float: right;
+    margin-top: -8px;
+    text-align: right;
+	font-size: 12px;
+    padding: 3px 6px;
+    border-radius: 20px;
+}
+.status_weizhifu{
+    border: 1px solid #b92807;
+   color: #b92807;
+
+}
+.status_yizhifu{
+    border: 1px solid #00B83F;
+    color: #00B83F;
+
+}
+
+.list-group-item-heading{
+    color: #666!important;
+    font-size: 16px;
+}

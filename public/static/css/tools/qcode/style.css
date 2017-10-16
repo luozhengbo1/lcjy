@@ -1,0 +1,31 @@
+@charset "UTF-8";
+
+.qcode{
+    margin:20px 0;
+    width: 100%;
+    text-align: center;
+}
+.qcode .qcode-upload{
+    width: inherit;
+    position: relative;
+}
+.qcode-upload img{
+    max-width: 200px;
+    height: 200px;
+}
+.qcode-upbar{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -18px 0 0 -66px;
+}
+
+.post-box,.sale_url{
+    text-align: center;
+}
+.sale_url>p{
+    text-align: center;
+    margin-top: 50px;
+    font-size: 14px;
+    text-decoration: dotted;
+}

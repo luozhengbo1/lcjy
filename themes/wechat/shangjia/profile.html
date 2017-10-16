@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title>商家个人中心</title>
+    <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- 可选的 Bootstrap 主题文件（一般不用引入） -->
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+    <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+    <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="__CSS__/wechat/shangjia/common.css"/>
+    <link rel="stylesheet" type="text/css" href="__CSS__/wechat/shangjia/sj_profile.css?{$Think.config.web.dev_version}"/>
+</head>
+</head>
+<body>
+<div class="container top_01">
+    <div class="row commission">
+        <div class="col-xs-12 com_text">
+            <p>当日佣金(元)</p>
+        </div>
+        <div class="col-xs-12 com_num">
+            <p>{$sum}</p>
+        </div>
+    </div>
+</div>
+<div class="container mid_01">
+    <div class="row"  id="toOrder">
+        <div class="col-xs-2 yuanxing">
+            <img src="__IMAGES__/shangjia/dingdan.svg" alt="dingdan" />
+        </div>
+        <div class="col-xs-7">
+            <p>订单统计</p>
+        </div>
+        <div class="col-xs-2 mid_more">
+            <img src="__IMAGES__/shangjia/more.svg" alt="more" />
+        </div>
+    </div>
+</div>
+<div class="container mid_02">
+    <div class="row"  id="toAmount">
+        <div class="col-xs-2 yuanxing_02">
+            <img src="__IMAGES__/shangjia/qianbao.svg" alt="qianbao" />
+        </div>
+        <div class="col-xs-3 chakan">
+            <p>查看余额</p>
+        </div>
+        <div class="col-xs-4 chakan_num">
+            <p>￥{$amount}</p>
+        </div>
+        <div class="col-xs-2 mid_more">
+            <img src="__IMAGES__/shangjia/more.svg" alt="more" />
+        </div>
+    </div>
+</div>
+<div class="container mid_03">
+    <div class="row" id="toTixian">
+        <div class="col-xs-2"></div>
+        <div class="col-xs-10 border_bu">
+            <div class="yuanxing_03"></div>
+            <p class="bottom_text">提现</p>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="__JS__/wechat/common.js" ></script>
+<script type="text/javascript" src="__JS__/jquery.min.js" ></script>
+<script>
+    $('#toOrder').click(function () {
+        window.location.href = '/wechat/shangjia/order'
+    });
+    $('#toAmount').click(function () {
+        window.location.href = '/wechat/shangjia/yue' //余额
+    });
+    $('#toTixian').click(function () {
+        window.location.href = '/wechat/shangjia/tixian'
+    })
+</script>
+</body>
+</html>

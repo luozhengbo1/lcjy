@@ -1,0 +1,22 @@
+{
+    "name": "sleepingwaly/dingtalk",
+    "description": "dingtalk sdk for php",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "waly",
+            "email": "godviacode@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {
+        "php": ">=5.5.0",
+        "nategood/httpful": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "Dingtalk\\": "src/"
+        }
+    }
+}

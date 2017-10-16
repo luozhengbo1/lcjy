@@ -1,0 +1,69 @@
+{extend name="base" /}
+{block name="body"}
+<div class="layui-body">
+    <!--tab标签-->
+    <div class="layui-tab layui-tab-brief">
+        <ul class="layui-tab-title">
+            <li class="layui-this">订单管理</li>
+            <li class=""><a href="{:url('admin/order/add')}">创建订单</a></li>
+        </ul>
+        <div class="layui-tab-content">
+            <div class="layui-tab-item layui-show">
+
+                <form class="layui-form layui-form-pane" action="{:url('admin/order/index')}" method="get">
+                    <div class="layui-inline">
+                        <label class="layui-form-label">关键词</label>
+                        <div class="layui-input-inline">
+                            <input type="text" name="keyword" value="{$keyword}" placeholder="标题／订单编号" class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-inline">
+                        <button class="layui-btn">搜索</button>
+                    </div>
+                </form>
+                <hr>
+
+                <table class="layui-table">
+                    <thead>
+                    <tr>
+                        <!--<th style="width: 30px;">ID</th>-->
+                        <th>订单主题</th>
+                        <th>发布者</th>
+                        <th>关联模板</th>
+                        <th>原浆类型</th>
+                        <th>订单金额</th>
+                        <th>预订数量</th>
+                        <th>创建时间</th>
+                        <th>最后更新</th>
+                        <th>订单状态</th>
+                        <th>操作</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {foreach name="order_list" item="vo"}
+                    <tr>
+                        <!--<td>{$vo.id}</td>-->
+                        <td><a href="{:url('/admin/order/info',['id'=>$vo.id])}" target="_blank">{$vo.title}</a></td>
+                        <td>{$vo.author|get_user_name}</td>
+                        <td>{$vo.goods_id|get_goods_name}</td>
+                        <td>{$vo.type|get_order_type}</td>
+                        <td>{$vo.amount}</td>
+                        <td>{$vo.num}</td>
+                        <td>{$vo.create_time}</td>
+                        <td>{$vo.update_time}</td>
+                        <td>{$vo.status|get_order_status}</td>
+                        <td>
+                            <a href="{:url('admin/order/edit',['id'=>$vo['id']])}" class="layui-btn layui-btn-normal layui-btn-mini ">编辑</a>
+                            <a href="{:url('admin/order/delete',['id'=>$vo['id']])}" class="layui-btn layui-btn-danger layui-btn-mini ajax-delete">删除</a>
+                        </td>
+                    </tr>
+                    {/foreach}
+                    </tbody>
+                </table>
+                <!--分页-->
+                {$order_list->render()}
+            </div>
+        </div>
+    </div>
+</div>
+{/block}

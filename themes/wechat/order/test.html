@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    .default{
+        font-family: "fzss";
+        src: url(res:///Kindle/fonts/fzss.1);
+    }
+    .kaishu{
+
+        font-family: "fzss";
+        src: url(res:///Kindle/fonts/fzss.2);
+    }
+    .zishu2{
+        /*两个字的排版*/
+    }
+</style>
+<body>
+
+<div class="default" id="result">
+    kjhgfdssadfg
+</div>
+<input type="text" id="input" value="jiangjiuzhizhao">
+<ul>
+    <li onclick="changefont(1)" class="kaishu ziti2" id="btn-kaishu">font1</li>  //kaishu  .kaishu
+    <li onclick="changefont(2)" >font2</li>
+    <li onclick="changefont(3)">font3</li>
+</ul>
+
+<script>
+
+    $('#input').change(function () {
+        $('#result').text($(this).val());
+
+        var length = $('#result').text();
+        if(length =2){
+            $('#result').addClass('zishu2');
+        }
+    })
+    function changefont(test) {
+        var length = $('#result').text();
+        if(length =1){
+
+        }
+        if(test ==1){
+            $('#result').addClass('kaishu');
+            $('#result').removeClass('default');
+        }
+    }
+</script>
+</body>
+</html>

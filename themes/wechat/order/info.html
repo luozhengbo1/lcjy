@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="zh">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta content="email=no" name="format-detection" />
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <title>酱酒智造</title>
+    <link rel="short icon" style="image/x-icon" href="images/favicon.ico">
+    <link rel="icon" style="image/x-icon" href="images/favicon.ico">
+    <link rel="stylesheet" type="text/css" href="__CSS__/zhongduan/global.min.css" />
+    <script src="__JS__/zhongduan/firstload.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="__JS__/jquery.min.js"></script>
+    <script src="__JS__/layui/lay/dest/layui.all.js"></script>
+    <style>
+        .rawpulp-value {
+            padding: .2rem .6rem;}
+        .rawpulp-dec-wrap>div, .reg-form .ipt-row {
+            margin-bottom: 1.3rem;
+        }
+        .address{
+            margin-top: 1rem;
+        }
+        .block{display: block;}
+        .checkaddress{padding: .4rem 2rem;background: #ddd}
+    </style>
+</head>
+
+<body>
+<main class="container plw">
+    <h2 class="pdtb pf tc tl0 w100 bg-white details-head" ellipsis>{$info.title}</h2>
+    <section class="rawpulp-content">
+        <div class="tc">
+            <img class="w100" src="{$info.image}" alt="" />
+        </div>
+        <div class="rawpulp-in-content" layout-align="start start" layout>
+            <div class="tr fl-small-txt">{$info.type}：</div>
+            <div class="rawpulp-dec-wrap">
+                <div>单价  <span class="ft-qred rawpulp-value"><em>{$info.unit}</em>元/件</span></div>
+                数量  <span class="ft-qred rawpulp-value"><em>{$info.num}</em>件</span>
+            </div>
+        </div>
+        <div class="total-money" layout-align="start start" layout style="padding-bottom: 20px;">
+            <div class="tr fl-small-txt">总金额：</div>
+            <div class="rawpulp-dec-wrap ft-qred">
+                <span class="ft-big">￥{$info.amount}</span>元
+            </div>
+        </div>
+        <hr>
+        <div class="address" layout-align="start start" >
+            <div id="checked">
+                <div class="tr fl-small-txt">收货地址：</div>
+                <input type="hidden" id="addressid" value="{$defaultAddress.id}">
+                <div class="tr">
+                    <span class="ft-big">{$defaultAddress.name} {$defaultAddress.tel}</span>
+                </div>
+                <div class="tr">
+                    <span class="ft-big1" style="text-align: left">{$defaultAddress.address}</span>
+                </div>
+            </div>
+            <div id="check">
+                <div style="text-align: center;margin-top: 1rem;">
+                    <button class="checkaddress" onclick="checkaddress()">更换收货地址</button>
+                </div>
+            </div>
+        </div>
+    </section>
+    <input type="hidden" id="orderid" value="{$info.id}">
+    <input type="hidden" id="username" value="{$userinfo.name}">
+    <input type="hidden" id="userid" value="{$userinfo.id}">
+    <input type="submit" onclick="pay()" ft-white class="bg-qred bd-none go-pay pf bl0 w100" value="立即支付" name="" />
+</main>
+
+<script src="__JS__/zhongduan/template.js" type="text/javascript" charset="utf-8"></script>
+<script src="__JS__/zhongduan/main.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
+<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script>
+    function checkaddress() {
+        var orderid = $('#orderid').val();
+        window.location.href = '/wechat/order/checkaddress/orderid/'+orderid;
+    }
+    function pay() {
+        if($('#addressid').val() == null ||$('#addressid').val() ==''){
+            layer.msg('收货地址不能为空');
+            return false;
+        }
+
+        WeixinJSBridge.invoke(
+            'getBrandWCPayRequest', <?= $config; ?>,
+            function(res){
+            if(res.err_msg == "get_brand_wcpay_request:ok" ) {
+                $.ajax({
+                    url: "http://t.j9zz.com/api/wechat/share",
+                    dataType: 'json',
+                    data:{
+                        share_url:encodeURIComponent(location.href.split('#')[0])
+                    },
+                    success: function(result) {
+                        result.jsApiList.push('closeWindow');
+                        wx.config(result);
+                        wx.ready(function() {
+                            wx.closeWindow();
+                        });
+                    }
+                });
+            }
+        }
+    );
+    };
+
+</script>
+
+</body>
+
+</html>

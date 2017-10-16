@@ -1,0 +1,115 @@
+/*注意：此CSS中：rem=（px/100）*2 */
+* {box-sizing: border-box;}
+body {
+  background: #fcfcfc;
+  font-family: "PingFang SC","Helvetica Neue",Helvetica,"Hiragino Sans GB","Microsoft YaHei","微软雅黑",Arial,sans-serif;
+}
+
+.mengban{
+	background: rgba(0, 0, 0, 0.50);
+  height: 100%;
+  padding: 10px;
+  position: fixed;
+  top: 1.34rem;
+  right: -20rem;
+  width: 100%;
+  z-index: 3;
+}
+#sideMenuContainer {
+  background: #fff;
+  height: 100%;
+  padding: 10px;
+  position: fixed;
+  top: 1.34rem;
+  right: -8rem;
+  width: 3.2rem;
+  z-index: 4;
+}
+#sideMenuContainer h2 {
+  color: #333333;
+  font-size: 0.32rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  text-align: center;
+  margin-top: 0.25rem;
+}
+
+.shaixuan_01,.shaixuan_02,.shaixuan_03,.shaixuan_04,.shaixuan_05{
+	width: 2.4rem;
+	height: 0.7rem;
+	border: 1px solid #cecece;
+	border-radius: 0.1rem;
+	text-align: center;
+	margin-left: 0.28rem;
+	margin-top: 0.38rem;
+	font-size: 0.3rem;
+	line-height: 0.7rem;
+	color: #333333;
+}
+/*.shaixuan_02,.shaixuan_03,.shaixuan_04,.shaixuan_05{
+	border: 1px solid #cecece;
+}*/
+.shaixuan_01,.shaixuan_02,.shaixuan_03,.shaixuan_04,.shaixuan_05{
+	
+}
+/*.shaixuan_01 p{*/
+/*.shaixuan_01{
+	font-size: 0.3rem;
+	line-height: 0.7rem;
+	color: #35BAC2;
+}*/
+.shaixuan li.change{
+	color: #35BAC2;
+	border: 1px solid #35BAC2;
+}
+#sideMenuContainer > a {
+  display: block;
+  padding: 5px 10px;
+}
+#sideMenuContainer > a::after {
+  content: attr(title);
+  font: 12px 'PT Sans', Helvetica, Arial, sans-serif;
+  padding-left: 10px;
+  text-transform: uppercase;
+}
+.color_change{
+	color: #35BAC2;
+	border: 1px solid #35BAC2;
+}
+.notice{
+    text-align: center;
+    margin-top: 50px;
+}
+.notice p{
+    display: inline-block;
+    font-size: 14px;
+    padding: 8px 20px;
+    color: #888;
+    border: 1px #ddd dashed;
+}
+/*移动端适配 width|height|font-size = 视觉稿量出来的值 / 100rem;@lbl*/
+@media screen and (max-width:359px) and (min-width:320px) {
+    html,body{
+        font-size: 50px !important;
+    }
+}
+@media screen and (max-width:374px) and (min-width:360px) {
+    html,body{
+        font-size: 56.25px !important;
+    }
+}
+@media screen and (max-width:413px) and (min-width:375px) {
+   html,body{
+        font-size: 58.5px !important;
+    }
+}
+@media screen and (max-width:639px)  and (min-width:414px){
+   html,body{
+        font-size: 64.6px !important;
+    }
+}
+@media screen and (min-width:640px) {
+   html,body{
+        font-size: 100px !important;
+    }
+}

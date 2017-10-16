@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no" />
+		<title>产品列表</title>
+		<!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
+		<link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+		<!-- 可选的 Bootstrap 主题文件（一般不用引入） -->
+		<link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+		<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+		<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+		<link rel="stylesheet" type="text/css" href="css/common.css" />
+		<link rel="stylesheet" type="text/css" href="css/pro_detail.css" />
+	</head>
+
+	<body>
+		<div class="container">
+			<input type="hidden"  id="title" value="">
+			<input type="hidden"  id="pid" value="">
+			<div class="row price_yj">
+				<div class="col-xs-6" id="type_list"></div>
+				<div class="col-xs-6 det_img">
+					<img id="image" src="img/index-img1.png" alt="定制酒" />
+					<p>编号：<span id="bianhao">105</span></p>
+				</div>
+			</div>
+			<div class="row detail_price">
+				<div class="col-xs-12 detail_title">
+					<p><span class="hongxian">|</span>&nbsp;价格参数</p>
+				</div>
+				<div class="col-xs-12 price_text">
+					<ul>
+						<li>三年原浆</li>
+						<li>原价：￥380</li>
+						<li>现价：￥158</li>
+					</ul>
+				</div>
+				<div class="col-xs-12 price_text">
+					<ul>
+						<li>五年原浆</li>
+						<li>原价：￥580</li>
+						<li>现价：￥298</li>
+					</ul>
+				</div>
+				<div class="col-xs-12 price_text">
+					<ul>
+						<li>十年原浆</li>
+						<li>原价：￥880</li>
+						<li>现价：￥588</li>
+					</ul>
+				</div>
+			</div>
+			<div class="row detail_yj">
+				<div class="col-xs-12 detail_title">
+					<p><span class="hongxian">|</span>&nbsp;产品详情</p>
+				</div>
+				<div class="col-xs-12 detail_text">
+					<p id="about">产品详情介绍产品详情产品详情产品详情产品详情产品详情产品详情产品详情产品详情</p>
+				</div>
+				<div class="col-xs-12 yj_img">
+					<img src="img/yuanjiang_01.jpg" alt="原浆介绍" id="type_image" />
+				</div>
+			</div>
+			<div class="row">
+				<div class="bottom_btn" onclick="contact()">
+					<p>提交定制需求</p>
+				</div>
+			</div>
+		</div>
+		<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+		<script src="//res.wx.qq.com/open/js/jweixin-1.2.0.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			var yj_image = [];
+			$.ajax({
+				type: 'GET',
+				url: 'http://t.j9zz.com/api/goods/info?id=' + GetQueryString('id'),
+				success: function(res) {
+					$('#about').text(res.data.about)
+					$('#bianhao').text(res.data.id)
+					$('#image').attr('src', res.data.image)
+					$('#title').val(res.data.title)
+					$('#pid').val(res.data.id)
+
+					var type_list = [];
+
+					for(var i = 0; i < res.data.yj.length; i++) {
+						if(i == 0) {
+							type_list[i] = '<div class="div_01">';
+							type_list[i] += '<div class="yj_sannian color_change type_' + i + '" onclick = "yjChange(' + i + ')" >';
+							type_list[i] += '<p>' + res.data.yj[i].name + '（￥' + res.data.yj[i].price + '）</p>';
+							type_list[i] += '</div></div>';
+						} else {
+							type_list[i] = '<div class="div_01">';
+							type_list[i] += '<div class="yj_sannian  type_' + i + '" onclick = "yjChange(' + i + ')" >';
+							type_list[i] += '<p>' + res.data.yj[i].name + '（￥' + res.data.yj[i].price + '）</p>';
+							type_list[i] += '</div></div>';
+						}
+						yj_image[i] = res.data.yj[i].image;
+					};
+
+					$('#type_list').append(type_list)
+					$('#type_image').attr('src', res.data.yj[0].image)
+				}
+
+			});
+
+			function yjChange(typeid) {
+				$('.yj_sannian').removeClass('color_change');
+				$('.type_' + typeid).addClass('color_change');
+				$('#type_image').attr('src', yj_image[typeid])
+
+			}
+
+			function GetQueryString(name) {
+				var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+				var r = window.location.search.substr(1).match(reg);
+				if(r != null) return unescape(r[2]);
+				return null;
+			}
+
+			function contact() {
+			    alert('立即前往主界面与客服沟通')
+				var message = '您正在访问的商品是：\n产品名称：'+$('#title').val()+'\n产品编号：'+$('#pid').val()+'\n请点击【立即定制】与客服沟通~'
+				$.ajax({
+					url:'http://t.j9zz.com/wechat/sendmessage',
+					data:{'message':message},
+				});
+                $.ajax({
+                    url: "http://t.j9zz.com/api/wechat/share",
+                    dataType: 'json',
+                    data:{
+                        share_url:encodeURIComponent(location.href.split('#')[0])
+                    },
+                    success: function(result) {
+                        result.jsApiList.push('closeWindow');
+                        wx.config(result);
+                        wx.ready(function() {
+                            wx.closeWindow();
+                        });
+                    }
+                });
+
+            }
+		</script>
+	</body>
+
+</html>

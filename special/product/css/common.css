@@ -1,0 +1,334 @@
+@charset "utf-8";
+
+/* 禁用iPhone中Safari的字号自动调整 */
+html {
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+    /* 解决IOS默认滑动很卡的情况 */
+    -webkit-overflow-scrolling : touch;
+}
+
+/* 禁止缩放表单 */
+input[type="submit"], input[type="reset"], input[type="button"], input {
+    resize: none;
+    border: none;
+}
+
+/* 取消链接高亮  */
+body, div, ul, li, ol, h1, h2, h3, h4, h5, h6, input, textarea, select, p, dl, dt, dd, a, img, button, form, table, th, tr, td, tbody, article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+/* 设置HTML5元素为块 */
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+
+/* 图片自适应 */
+img {
+    width: 100%;
+    height: 100%;
+    width: auto\9; /* ie8 */
+    display: block;
+    -ms-interpolation-mode: bicubic;/*为了照顾ie图片缩放失真*/
+}
+
+/* 初始化 */
+body, div, ul, li, ol, h1, h2, h3, h4, h5, h6, input, textarea, select, p, dl, dt, dd, a, img, button, form, table, th, tr, td, tbody, article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+    margin: 0;
+    padding: 0;
+}
+body {
+    font: 12px/1.5 'Microsoft YaHei','宋体', Tahoma, Arial, sans-serif;
+    color: #555;
+    background-color: #F7F7F7;
+}
+em, i {
+    font-style: normal;
+}
+ul,li{
+    list-style-type: none;
+}
+strong {
+    font-weight: normal;
+}
+.clearfix:after {
+    content: "";
+    display: block;
+    visibility: hidden;
+    height: 0;
+    clear: both;
+}
+.clearfix {
+    zoom: 1;
+}
+a {
+    text-decoration: none;
+    color: #969696;
+    font-family: 'Microsoft YaHei', Tahoma, Arial, sans-serif;
+}
+a:hover {
+    text-decoration: none;
+}
+ul, ol {
+    list-style: none;
+}
+h1, h2, h3, h4, h5, h6 {
+    font-size: 100%;
+    font-family: 'Microsoft YaHei';
+}
+
+input{
+    font-family: 'Microsoft YaHei';
+}
+/*单行溢出*/
+.one-txt-cut{
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+/*多行溢出 手机端使用*/
+.txt-cut{
+    overflow : hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    /* -webkit-line-clamp: 2; */
+    -webkit-box-orient: vertical;
+}
+/* 移动端点击a链接出现蓝色背景问题解决 */
+a:link,a:active,a:visited,a:hover {
+    background: none;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+    -webkit-tap-highlight-color: transparent;
+}
+.w50{
+    width: 50%;
+}
+.w25{
+    width: 25%;
+}
+.w20{
+    width: 20%;
+}
+.w33{
+    width: 33.333333%;
+}
+.fl{
+    float: left;
+}
+.fr{
+    float: right;
+}
+.db{
+    display: block !important;
+}
+.dn{
+    display: none;
+}
+.content{
+	min-width: 320px;
+	max-width: 640px;
+	margin: auto;
+	background: #f4f4f4;
+}
+.content .content-bg div{
+	margin: auto;
+	width: 0.9rem;
+	margin-top:0.4rem;
+	height: 0.9rem;
+	font-size: 0.75rem;
+	color: #FFF;
+	line-height: 0.75rem;
+	text-align: center;
+}
+
+.content .content-bg .content-name{
+	margin-top: 0.2rem;
+	display: block;
+	line-height: 0.4rem;
+	height: 0.4rem;
+	text-align: center;
+	color: #FFFFFF;
+	font-size: 0.34rem;
+}
+.consignee{
+	float: left;
+	background: #FFFFFF;
+	width: 100%;
+	height: 2.7rem;
+}
+.consignee ul {
+	color: #333333;
+	font-size: 0.3rem;
+	line-height: 0.9rem;
+	height: 0.9rem;
+	width: 100%;
+}
+.consignee .consignee-left{
+	padding-left: 0.2rem;
+	float: left;
+}
+.consignee .consignee-right{
+	padding-right: 0.2rem;
+	float: right;
+}
+
+
+.consignee-sub{
+	height: 1.8rem;
+	width: 100%;
+}
+.consignee-sub ol{
+	float: left;
+	height: 1.79rem;
+	width: 100%;
+}
+.consignee-sub ol #sub-lefet{
+	text-align: center;
+	font-size: 0.4rem;
+	width: 0.8rem;
+	float: left;
+}
+.consignee-sub ol #sub-lefet img{
+	padding-left: 0.12rem;
+	width: 0.5rem;
+	height: 0.5rem;
+}
+.consignee-sub ol .sub-right{
+	height: 1.78rem;
+	width: 5.6rem;
+	float: right;
+	font-size: 0.3rem;
+	color: #333333;
+}
+
+
+.content-div{
+	background: #d0d0d0;
+	float: left;
+	margin-top: 20px;
+	height: 2.75rem;
+	width: 100%;
+	background: #FFFFFF;
+}
+
+.content-div ul{
+	line-height: 0.6rem;
+	width: 100%;
+	height: 0.6rem;
+	border-bottom: 0.01rem solid #bfbfbf;
+	border-top: 0.01rem solid #bfbfbf;
+	
+}
+.content-div ul .content-left{
+	margin-left: 0.2rem;
+	font-size: 0.24rem;
+	float: left;
+}
+.content-div ul .content-left span{
+	font-size: 0.36rem;
+}
+.content-div ul .content-right{
+	float: right;
+	color: #f83030;
+	font-size: 0.28rem;
+	margin-right: 0.29rem;
+}
+.content-sub{
+	height: 2.12rem;
+}
+.content-sub .content-img{
+	padding: 10px;
+	box-sizing: border-box;
+	float: left;
+	height: 2.11rem;	
+	width: 2.11rem;
+}
+.content-sub .content-name{
+	
+	width: 4.253rem;
+	height: 2.1rem;
+	float: left;
+}
+.content-sub .content-name div{
+	box-sizing: border-box;
+	margin-top: 0.26rem;
+	width: 100%;
+	height:0.8rem;
+	
+	font-size: 0.29rem;
+	overflow: hidden;
+}
+.content-sub .content-name ol{
+	margin-top: 0.3rem;
+	float: left;
+}
+.content-sub .content-name li{
+	margin-left: 0.3rem;
+}
+.content-sub .content-name .price-left{
+	float: left;
+	color: #f83030;
+}
+.content-sub .content-name .price-left span{
+	color: #f83030;
+	font-size: 0.34rem;
+}
+.content-sub .content-name .price-right{
+	float: left;
+	margin-left: 1rem;
+	font-size: 0.3rem;
+}
+
+/*移动端适配 width|height|font-size = 视觉稿量出来的值 / 100rem;@lbl*/
+@media screen and (max-width:359px) and (min-width:320px) {
+    html,body{
+        font-size: 50px !important;
+    }
+}
+@media screen and (max-width:374px) and (min-width:360px) {
+    html,body{
+        font-size: 56.25px !important;
+    }
+}
+@media screen and (max-width:413px) and (min-width:375px) {
+   html,body{
+        font-size: 58.5px !important;
+    }
+}
+@media screen and (max-width:639px)  and (min-width:414px){
+   html,body{
+        font-size: 64.6px !important;
+    }
+}
+@media screen and (min-width:640px) {
+   html,body{
+        font-size: 100px !important;
+    }
+}
+/*移动端适配 width|height|font-size = 视觉稿量出来的值 / 100rem;@lbl*/
+@media screen and (max-width:359px) and (min-width:320px) {
+    html,body{
+        font-size: 50px !important;
+    }
+}
+@media screen and (max-width:374px) and (min-width:360px) {
+    html,body{
+        font-size: 56.25px !important;
+    }
+}
+@media screen and (max-width:413px) and (min-width:375px) {
+   html,body{
+        font-size: 58.5px !important;
+    }
+}
+@media screen and (max-width:639px)  and (min-width:414px){
+   html,body{
+        font-size: 64.6px !important;
+    }
+}
+@media screen and (min-width:640px) {
+   html,body{
+        font-size: 100px !important;
+    }
+}

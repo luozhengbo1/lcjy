@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title>订单详情</title>
+    <link rel="stylesheet" href="__CSS__/wechat/common.css?version1.0.0" />
+    <link rel="stylesheet" href="__CSS__/wechat/detail.css" />
+</head>
+
+<body>
+
+<div class="content">
+    {if condition='$info.status eq 1'}
+    <div class="content-bg shengchanzhong">
+        <div class="icon iconfont"><img src="__IMAGES__/icons/order_ssz.png"></div>
+        <span class="content-name">{$info.status|get_order_status}</span>
+    </div>
+    {elseif condition='$info.status eq 2'}
+    <div class="content-bg fahuozhong">
+        <div class="icon iconfont"><img src="__IMAGES__/icons/order_yfh.png"></div>
+        <span class="content-name">{$info.status|get_order_status}</span>
+    </div>
+    {elseif condition='$info.status eq 3'}
+    <div class="content-bg yishouhuo">
+        <div class="icon iconfont"><img src="__IMAGES__/icons/order_ysh.png"></div>
+        <span class="content-name">{$info.status|get_order_status}</span>
+    </div>
+    {/if}
+    <div class="consignee">
+        <ul>
+            <li class="consignee-left">收货人：{$addressinfo.name}</li>
+            <li class="consignee-right">{$addressinfo.tel}</li>
+        </ul>
+        <div class="consignee-sub">
+            <ol>
+                <li id="sub-lefet" class="icon iconfont"><img src="__IMAGES__/icons/local.png" alt=""></li>
+                <li class="sub-right">{$addressinfo.address}</li>
+            </ol>
+        </div>
+    </div>
+    <div class="content-div">
+        <div class="content-title">
+            <ul>
+                <li class="content-left">共{$info.num}件商品&nbsp;合计：￥<span>{$info.amount}</span>(含运费：￥0.00)</li>
+                <li class="content-right"></li>
+            </ul>
+        </div>
+
+        <div class="content-sub">
+            <div class="content-img">
+                <img  src="{$info.image}">
+            </div>
+            <div class="content-name">
+
+                <div>{$info.title}</div>
+                <ol>
+                    <li class="price-left">￥<span>{$info.type|get_order_unit}</span></li>
+                    <li class="price-right">数量：{$info.num}</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+
+</div>
+</body>
+<script type="text/javascript" src="__JS__/wechat/common.js"></script>
+</html>

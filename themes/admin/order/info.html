@@ -1,0 +1,60 @@
+{extend name="base" /}
+{block name="body"}
+<style>
+    .status_success{color: #00B83F;font-weight: 800;border: 1px solid #00B83F;padding: 4px 16px;}
+    .status_failed{color: red;font-weight: 800;border: 1px solid red;padding: 4px 16px;}
+    .status_wait{color: #333333;font-weight: 800;border: 1px solid #333333;padding: 4px 16px;}
+</style>
+<div class="layui-body">
+    <!--tab标签-->
+    <div class="layui-tab layui-tab-brief">
+        <ul class="layui-tab-title">
+            <li class=""><a href="{:url('admin/order/index')}">订单管理</a></li>
+            <li class="layui-this">订单信息</li>
+        </ul>
+        <div class="layui-tab-content">
+            <div class="layui-tab-item layui-show">
+                <fieldset class="layui-elem-field layui-field-title">
+                    <legend>{$info.title} - 基本信息</legend>
+                </fieldset>
+                <blockquote class="layui-elem-quote">
+                    <p>商户单号：{$info.trade_no}(订单号)</p>
+                    <hr>
+                    <p>关联产品：{$info.goods_id|get_goods_name}</p>
+                    <hr>
+                    <p>原浆类型：{$info.type|get_order_type}</p>
+                    <hr>
+                    <p>预订数量：{$info.num}瓶</p>
+                    <hr>
+                    <p>订单金额：{$info.amount}</p>
+                    <hr>
+                    <p>设计师：{$info.author|get_user_name}(即上传者)</p>
+                    <hr>
+                    <p>创建时间：{$info.create_time}</p>
+                    <hr>
+                    <p>最后更新：{$info.update_time}</p>
+                    <hr>
+                    <p>付款时间：{$info.paid_time}</p>
+                    <hr>
+                    {if condition="$info.status eq 1"}
+                    <p>当前状态：<span class="status_success">{$info.status|get_order_status}</span></p>
+                    {/if}
+                    {if condition="$info.status eq 0"}
+                    <p>当前状态：<span class="status_wait">{$info.status|get_order_status}</span></p>
+                    {/if}
+                    {if condition="$info.status eq 2"}
+                    <p>当前状态：<span class="status_failed">{$info.status|get_order_status}</span></p>
+                    {/if}
+                    {if condition="$info.status eq 3"}
+                    <p>当前状态：<span class="status_failed">{$info.status|get_order_status}</span></p>
+                    {/if}
+                    <hr>
+                    <p>收货地址：[{$info.address.name}-{$info.address.tel}] {$info.address.address}</p>
+                    <hr>
+                    <p>订单地址：<a href="/wechat/order/info/?id={$info.id}">http://t.j9zz.com/wechat/order/info/?id={$info.id}</a></p>
+                </blockquote>
+            </div>
+        </div>
+    </div>
+</div>
+{/block}

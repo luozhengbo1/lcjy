@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<script src="//res.wx.qq.com/open/js/jweixin-1.2.0.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+    $.ajax({
+        url: "http://t.j9zz.com/api/wechat/share",
+        dataType: 'json',
+        data:{
+            share_url:encodeURIComponent(location.href.split('#')[0])
+        },
+        success: function(result) {
+            result.jsApiList.push('closeWindow');
+            wx.config(result);
+            wx.ready(function() {
+                wx.closeWindow();
+            });
+        }
+    });
+
+</script>
+</body>
+</html>
+

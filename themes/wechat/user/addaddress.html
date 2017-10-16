@@ -1,0 +1,94 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title></title>
+    <link rel="stylesheet" href="__CSS__/wechat/common.css" />
+    <link rel="stylesheet" href="__CSS__/wechat/area.css" />
+    <link rel="stylesheet" href="__CSS__/wechat/addaddress.css?version=1.0.1" />
+</head>
+<body>
+<div class="content">
+    <div>
+        <ul class="site">
+            <li><input type="text" id="name" value="" placeholder="收货人姓名" /> </li>
+            <li><input type="text" id="tel" value="" placeholder="手机号码" />
+            </li>
+            <li>
+                <input id="demo1" type="text" readonly="" name="area" placeholder="城市选择" value="省、市、区">
+                <input id="area" type="hidden" name='area' value="北京市,东城区">
+                <span>></span>
+            </li>
+            <div class="site-text">
+                <textarea  id="address" name="address" rows="8" cols="25" placeholder="请输入详细地址"></textarea>
+            </div>
+        </ul>
+        <button class="actionBtn" onclick="postdata()">添 加</button>
+    </div>
+</div>
+</body>
+<script type="text/javascript" src="__JS__/wechat/common.js"></script>
+<script src="__JS__/wechat/LAreaData1.js"></script>
+<script src="__JS__/wechat/LAreaData2.js"></script>
+<script src="__JS__/wechat/LArea.js"></script>
+<script type="text/javascript" src="__JS__/jquery.min.js"></script>
+<script type="text/javascript" src="__JS__/wechat/addaddress.js"></script>
+<script src="__JS__/layui/lay/dest/layui.all.js"></script>
+<script type="text/javascript">
+    $('#name').change(function() {
+        var myreg = /^[\u4e00-\u9fa5]{2,5}$/;  //正则匹配规格
+        if(!myreg.test($(this).val())) {
+            layer.msg('收货人姓名格式不正确')
+            $(this).val('');
+        }
+    })
+
+    $('#tel').change(function() {
+        var myreg = /^[1][3,4,5,7,8][0-9]{9}$/; //正则匹配
+        if(!myreg.test($(this).val())) {
+            layer.msg('手机号格式不正确')
+            $(this).val('');
+        }
+    })
+
+   function postdata() {
+        var name = $('#name').val();
+        var tel = $('#tel').val();
+        var area = $('#area').val();
+        var _adresss = $('#address').val();
+
+        if(name ==null && name ==''){
+          layer.msg('收货人姓名不能为空')
+            return false;
+        }
+
+       if(tel ==null && tel ==''){
+           layer.msg('联系电话不能为空')
+           return false;
+       }
+       if(_adresss ==null && _adresss ==''){
+           layer.msg('请填写详细收货地址')
+           return false;
+       }
+       $.ajax({
+            type:'POST',
+            url:'/wechat/user/addaddress',
+            data:{'name':name,'tel':tel,'area':area,'address':_adresss},
+           success:function (data) {
+
+               if(data.code ==0){
+                    layer.msg(data.msg)
+                   setTimeout(function () {
+                       window.location.href='/wechat/user/myaddress'+"?rand="+Math.floor(Math.random()*50);
+                   }, 1000);
+               } else{
+                   layer.msg(data.msg)
+               }
+           }
+       })
+   }
+</script>
+
+</html>

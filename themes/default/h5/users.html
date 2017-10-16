@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>客户列表</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+</head>
+<body>
+<div class="bs-example" data-example-id="bordered-table">
+    <table class="table table-bordered">
+        <thead>
+        <tr>
+            <th>姓名</th>
+            <th>电话</th>
+            <th>数量</th>
+            <!--<th>时间</th>-->
+            <th>操作</th>
+        </tr>
+        </thead>
+        <tbody>
+        {volist name='list' id='vo'}
+        <tr>
+            <th scope="row">{$vo.name}</th>
+            <td>{$vo.tel}</td>
+            <td>{$vo.num}</td>
+            <!--<td>{$vo.create_time|date='m-d H:i:s',###}</td>-->
+            <td>
+                {if condition='$vo.status eq 1'}
+                <a type="button" class="btn btn-success btn-xs" disabled="disabled">已读</a>
+                {else /}
+                <a type="button" class="btn btn-danger btn-xs" id="{$vo.id}" onclick="changestatus({$vo['id']})">未读</a>
+                {/if}
+            </td>
+        </tr>
+      {/volist}
+        </tbody>
+    </table>
+</div>
+<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script>
+    function changestatus(id) {
+        $.ajax({
+            data:{id:id},
+            url:'/index/h5/changestatus',
+            success:function (res) {
+                $('#'+id).text('已读');
+                $('#'+id).removeClass('btn-danger');
+                $('#'+id).addClass('btn-success');
+            }
+        })
+    }
+</script>
+</body>
+</html>

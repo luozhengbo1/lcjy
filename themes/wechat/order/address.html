@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<<<<<<< HEAD
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0;" name="viewport" />
+    <title>我的收货地址</title>
+    <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+    <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script src="__JS__/jquery.min.js"></script>
+    <script src="__JS__/layui/lay/dest/layui.all.js"></script>
+    <link rel="stylesheet" href="__CSS__/wechat/myaddress.css">
+</head>
+<body>
+<div class="container" style="padding-top: 20px;">
+    <!--<p class="text-center title">收货地址</p>-->
+
+    <div class="list-group" id="list-group" >
+        {volist name='address_list' id='fo'}
+        <a href="{:url('/wechat/user/deleteaddress',['id'=>$fo.id])}" id="{$fo.id}" class="ajax-delete list-group-item {if condition='$fo.isdefault eq 1'} active{/if}">
+            <h4 class="list-group-item-heading">{$fo.name} <span class="right">{$fo.tel}</span></h4>
+            <p class="list-group-item-text">{if condition='$fo.isdefault eq 1'}[默认] {/if}{$fo.address}</p>
+        </a>
+        {/volist}
+    </div>
+    <div class="form-box" style="display: none" id="form-box">
+        <form>
+            <div class="alert alert-warning alert-dismissible fade in" role="alert">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
+                <span id="message">请务必保证收货信息的真实性</span>
+            </div>
+            <div class="input-group">
+                <span class="input-group-addon" id="basic-name">真实姓名</span>
+                <input type="text" class="form-control"value="" placeholder="收货人真实姓名" aria-describedby="basic-name" id="name">
+            </div>
+            <div class="input-group">
+                <span class="input-group-addon" id="basic-tel">联系电话</span>
+                <input type="tel" class="form-control" value="" placeholder="收货联系电话，务必畅通" aria-describedby="basic-tel" id="tel">
+            </div>
+            <div class="input-group">
+                <span class="input-group-addon" id="basic-address">收货地址</span>
+                <input type="text" class="form-control" value="" placeholder="详细收货地址" aria-describedby="basic-address" id="address">
+            </div>
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox" name="isdefault" value="1" id="isdefault"> 设为默认地址
+                    <input type="hidden" id="rand" value="{$random}">
+                </label>
+            </div>
+        </form>
+    </div>
+    <div>
+        <button type="button" class="btn btn-danger btn-lg btn-block" onclick="post()" id="button-post" style="display: none;">
+            <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+            提交
+        </button>
+        <button type="button" class="btn btn-danger btn-lg btn-block" onclick="add()" id="button-add">
+            <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+            添加收货地址
+        </button>
+    </div>
+</div>
+<script>
+    var rand = $('#rand').val();
+    console.log(rand)
+    function add() {
+        $('#list-group').hide();
+        $('#button-add').hide();
+        $('#button-post').show();
+        $('#form-box').show();
+    }
+    function post() {
+
+        var name = $('#name').val();
+        var tel = $('#tel').val();
+        var address = $('#address').val();
+        var isdefault = $('#isdefault').val();
+        if(name ==''){
+            layer.msg('收货人姓名不能为空');
+//            $('#name').focus();
+            return false;
+        }
+        if(tel ==''){
+            layer.msg('收货人联系电话不能为空');
+//            $('#tel').focus();
+            return false;
+        }
+        if(address ==''){
+            layer.msg('收货地址不能为空');
+//            $('#address').focus();
+            return false;
+        }
+        $.ajax({
+            type:'POST',
+            url:'/wechat/user/myaddress',
+            data:{'name':name,'tel':tel,'address':address,'isdefault':isdefault},
+            success:function (res) {
+                console.log(res)
+                if(res.code == 2001){
+                    layer.msg('恭喜您，添加成功')
+                    window.location.href=window.location.href+"?rand="+rand;
+                } else {
+                    layer.msg('添加失败，稍后重试')
+                }
+            }
+        })
+    }
+    //    删除
+    $('.ajax-delete').on('click', function () {
+        var _href = $(this).attr('href');
+        var _id   = $(this).attr('id');
+        layer.open({
+            title:false,
+            shade: [0.8, '#393D49'],
+            content: 'test'
+            ,btn: ['删除', '设为默认','修改']
+            ,yes: function(index, layero){
+                //按钮【按钮一】的回调
+                $.ajax({
+                    url: _href,
+                    type: "get",
+                    success: function (info) {
+                        layer.msg(info.msg);
+                        if (info.code === 2017) {
+                            setTimeout(function () {
+                                window.location.href=window.location.href+"?rand="+rand;
+                            }, 1000);
+                        }
+                    }
+                });
+                layer.close(index);
+            }
+            ,btn2: function(index, layero){
+                //按钮【按钮二】的回调
+                $.ajax({
+                    url: '/wechat/user/setDefaultAddress',
+                    type: "PUT",
+                    data:{'id':_id},
+                    success: function (info) {
+                        if (info.code == 2001) {
+                            setTimeout(function () {
+                                window.location.href=window.location.href+"?rand="+rand;
+                            }, 1000);
+                        }
+                        layer.msg(info.msg);
+//                       window.location.href=updateUrl(window.location.href);
+                    }
+                });
+                layer.close(index);
+                //return false 开启该代码可禁止点击该按钮关闭
+            }
+            ,btn3: function(index, layero){
+                //按钮【按钮三】的回调
+                layer.msg('3')
+                window.location.href=window.location.href+"?id="+10000*Math.random();
+                layer.close(index);
+                //return false 开启该代码可禁止点击该按钮关闭
+            }
+            ,cancel: function(){
+                //右上角关闭回调
+
+                //return false 开启该代码可禁止点击该按钮关闭
+            }
+        });
+
+        return false;
+    });
+
+</script>
+=======
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+>>>>>>> 6e908eb86b81280ef38ff39a65debd12d4791b23
+</body>
+</html>

@@ -1,0 +1,79 @@
+
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
+    <title></title>
+    <link rel="stylesheet" href="__CSS__/wechat/address.css?version=1.0.1" />
+</head>
+<body>
+
+<div class="jd_shop">
+    <div class="jd_shop_con">
+        {volist name='address_list' id='fo'}
+        <div class="product">
+            <ul>
+                <li class="consignee-left">收货人：{$fo.name}</li>
+                <li class="consignee-right">{$fo.tel}</li>
+            </ul>
+
+            <div class="consignee-sub">
+                <ol>
+                    <li id="sub-lefet" class="icon iconfont"><img src="__IMAGES__/icons/local.png" alt=""></li>
+                    <li class="sub-right">{$fo.address}</li>
+                </ol>
+            </div>
+            <div class="shop_info clearfix">
+                <div class="info_box">
+                    <div class="p_opition">
+                        {if condition='$fo.isdefault eq 1'}
+                        <div class="one">
+                     		<span class="ones">
+                     			<img src="__IMAGES__/icons/checked.png">
+                     		</span>
+                        </div>
+                        <div class="two">默认地址</div>
+                        {else/}
+                        <div class="one" onclick="setdefault({$fo['id']})">
+                     		<span class="ones">
+                     			<img src="__IMAGES__/icons/check.png">
+                     		</span>
+                        </div>
+                        <div class="two">设为默认</div>
+                        {/if}
+                        <div class="three"><a href="{:url('/wechat/user/editaddress',['id'=>$fo.id])}">编辑</a></div>
+
+                        <div class="delete_box f_right" onclick="del({$fo['id']});">
+                            <span class="delete_down">删除</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {/volist}
+    </div>
+</div>
+<!--<div class="jd_win">-->
+    <!--<div class="jd_win_box">-->
+        <!--<div class="jd_win_tit">你确定删除该地址吗？ <br /><p>(此操作为不可修复)</p> </div>-->
+        <!--<div class="jd_btn clearfix">-->
+            <!--<a href="#" class="cancle f_left">取消</a>-->
+            <!--<a href="#" class="submit f_right">确定</a>-->
+        <!--</div>-->
+
+    <!--</div>-->
+<!--</div>-->
+<div class="footer">
+    <a href="{:url('/wechat/user/addaddress')}">
+        新增收货地址
+    </a>
+</div>
+
+<script src="__JS__/wechat/common.js"></script>
+<script type="text/javascript" src="__JS__/jquery.min.js" ></script>
+<script type="text/javascript" src="__JS__/wechat/address.js?version=1.0.1" ></script>
+<script src="__JS__/layui/lay/dest/layui.all.js"></script>
+</body>
+</html>

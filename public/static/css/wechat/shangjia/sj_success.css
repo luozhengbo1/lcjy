@@ -1,0 +1,68 @@
+@charset "utf-8";
+*{
+	font-family: "PingFang SC","Helvetica Neue",Helvetica,"Hiragino Sans GB","Microsoft YaHei","微软雅黑",Arial,sans-serif;
+	font-size: 0.3rem;
+	color: #333333;
+}
+body{
+	background-color: #f4f4f4;
+}
+.suc_01{
+	text-align: center;
+	margin-top: 1.9rem;
+}
+.suc_01 img{
+	width: 1.34rem;
+	height: 1.34rem;
+	margin: 0 auto;
+}
+.suc_02{
+	margin-top: 0.2rem;
+	text-align: center;
+}
+.suc_02 p{
+	color: #959595;
+	font-size: 0.3rem;
+}
+.suc_03{
+	margin-top: 2rem;
+}
+.guanbi_but{
+	margin: 0 auto;
+	width: 85%;
+	background-color: #35BAC2;
+	text-align: center;
+	padding: 0.2rem 0;
+}
+.suc_03 p{
+	color: #ffffff;
+
+	font-size: 0.28rem;
+}
+
+/*移动端适配 width|height|font-size = 视觉稿量出来的值 / 100rem;@lbl*/
+@media screen and (max-width:359px) and (min-width:320px) {
+    html,body{
+        font-size: 50px !important;
+    }
+}
+@media screen and (max-width:374px) and (min-width:360px) {
+    html,body{
+        font-size: 56.25px !important;
+    }
+}
+@media screen and (max-width:413px) and (min-width:375px) {
+   html,body{
+        font-size: 58.5px !important;
+    }
+}
+@media screen and (max-width:639px)  and (min-width:414px){
+   html,body{
+        font-size: 64.6px !important;
+    }
+}
+@media screen and (min-width:640px) {
+   html,body{
+        font-size: 100px !important;
+    }
+}

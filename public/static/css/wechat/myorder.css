@@ -1,0 +1,83 @@
+@import url("public.css");
+.content{
+    min-width: 320px;
+    max-width: 640px;
+    margin: auto;
+}
+
+.content-div{
+    border-bottom: 0.01rem solid #bfbfbf;
+    background: #d0d0d0;
+    float: left;
+    margin-top: 20px;
+    height: 2.75rem;
+    width: 100%;
+    background: #FFFFFF;
+}
+
+.content-div ul{
+    line-height: 0.6rem;
+    width: 100%;
+    height: 0.6rem;
+    border-bottom: 0.01rem solid #bfbfbf;
+    border-top: 0.01rem solid #bfbfbf;
+}
+.content-div ul .content-left{
+    color: #333333;
+    margin-left: 0.2rem;
+    font-size: 0.24rem;
+    float: left;
+}
+.content-div ul .content-left span{
+    font-size: 0.34rem;
+}
+.content-div ul .content-right{
+    float: right;
+    color: #f83030;
+    font-size: 0.28rem;
+    margin-right: 0.29rem;
+}
+.content-sub .content-img{
+    float: left;
+    height: 2.14rem;
+    width: 2.14rem;
+}
+
+.content-sub .content-img img{
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    padding: 10px;
+}
+.content-sub .content-name{
+    color: #333333;
+    width: 4.253rem;
+    height: 2.16rem;
+    float: left;
+}
+.content-sub .content-name div{
+    padding-right: 0.3rem;
+    margin-top: 0.21rem;
+    margin-left: 0.23rem;
+    font-size: 0.28rem;
+}
+.content-sub .content-name ol{
+    margin-top: 0.33rem;
+}
+.content-sub .content-name li{
+    margin-left: 0.23rem;
+}
+.content-sub .content-name .price-left{
+    float: left;
+    color: #f83030;
+    font-size: 0.15rem;
+}
+.content-sub .content-name .price-left span{
+    color: #f83030;
+    font-size: 0.34rem;
+}
+.content-sub .content-name .price-right{
+    float: left;
+    margin-left: 0.9rem;
+    font-size: 0.3rem;
+}

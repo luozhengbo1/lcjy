@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>权限认证</title>
+    <link rel="stylesheet" href="__CSS__/dingtalk/callback.css">
+</head>
+<body>
+<div>
+   <div class="config">
+       <p id="agentId">{$config.agentId}</p>
+       <p id="corpId">{$config.corpId}</p>
+       <p id="timeStamp">{$config.timeStamp}</p>
+       <p id="nonceStr">{$config.nonceStr}</p>
+       <p id="signature">{$config.signature}</p>
+   </div>
+        <p><img src="__IMAGES__/dingtalk/user-64.png" id="avatar"></p>
+        <p><span id="nickname">尊姓大名</span></p>
+    </div>
+</div>
+<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://g.alicdn.com/dingding/dingtalk-pc-api/2.7.0/index.js"></script>
+<script src="//g.alicdn.com/dingding/open-develop/1.6.9/dingtalk.js"></script>
+<script src="__JS__/dingtalk/callback.js"></script>
+</body>
+</html>

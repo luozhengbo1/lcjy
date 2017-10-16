@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title>个人信息</title>
+    <link rel="stylesheet" href="__CSS__/wechat/common.css" />
+    <link rel="stylesheet" href="__CSS__/wechat/profile.css" />
+</head>
+<body>
+<div class="content">
+    <div class="content-bg">
+		<span>
+			<img src="{$userinfo.avatar}">
+		</span>
+        <p>{$userinfo.username}</p>
+    </div>
+
+    <ul class="content-from">
+        <li><p>姓名</p>
+            <a href="{:url('/wechat/user/edituserinfo')}">{$userinfo.username}</a>
+        </li>
+        <li><p>性别</p>
+            <a href="{:url('/wechat/user/edituserinfo')}">{if condition ='$userinfo.sex eq 1'}男{else/}女{/if} </a>
+        </li>
+        <li><p>电话</p>
+            <a href="{:url('/wechat/user/edituserinfo')}">{$userinfo.mobile}</a>
+        </li>
+        <li><p>来自</p>
+            <a href="{:url('/wechat/user/edituserinfo')}">{$userinfo.city}</a>
+        </li>
+    </ul>
+</div>
+<script type="text/javascript" src="__JS__/wechat/common.js" ></script>
+</body>
+</html>

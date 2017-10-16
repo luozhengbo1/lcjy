@@ -1,0 +1,67 @@
+{extend name="base" /}
+{block name="body"}
+<div class="layui-body">
+    <!--tab标签-->
+    <div class="layui-tab layui-tab-brief">
+        <ul class="layui-tab-title">
+            <li class="layui-this">产品列表</li>
+            <li class=""><a href="{:url('admin/goods/add')}">添加产品</a></li>
+        </ul>
+        <div class="layui-tab-content">
+            <div class="layui-tab-item layui-show">
+                <form class="layui-form layui-form-pane" action="{:url('admin/goods/index')}" method="get">
+                    <div class="layui-inline">
+                        <label class="layui-form-label">关键词</label>
+                        <div class="layui-input-inline">
+                            <input type="text" name="keyword" value="{$keyword}" placeholder="请输入关键词" class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-inline" style="width: 80px;">
+                        <select name="type" lay-filter='type' lay-verify="required"
+                                id="goods_id">
+                            <option value="">全部</option>
+                            {volist name='cate_list' id='fo'}
+                            <option value="{$fo.id}">{$fo.name}</option>
+                            {/volist}
+                        </select>
+                    </div>
+                    <div class="layui-inline" style="width: 80px;">
+                        <button class="layui-btn">搜索</button>
+                    </div>
+                </form>
+                <hr>
+                <table class="layui-table">
+                    <thead>
+                    <tr>
+                        <th style="width: 30px;">ID</th>
+                        <th>产品名称</th>
+                        <th>缩略图</th>
+                        <th>类型</th>
+                        <th>说明</th>
+                        <th>状态</th>
+                        <th>操作</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {foreach name="goods_list" item="vo"}
+                    <tr>
+                        <td>{$vo.id}</td>
+                        <td>{$vo.title}</td>
+                        <td><img src="{$vo.image}" style="max-height: 120px;"></td>
+                        <td>{$vo.type|get_type_name}</td>
+                        <td>{$vo.about}</td>
+                        <td>{php}echo $vo['status'] ? '显示' : '隐藏';{/php}</td>
+                        <td>
+                            <a href="{:url('admin/goods/edit',['id'=>$vo['id']])}" class="layui-btn layui-btn-normal layui-btn-mini">编辑</a>
+                            <a href="{:url('admin/goods/delete',['id'=>$vo['id']])}" class="layui-btn layui-btn-danger layui-btn-mini ajax-delete">删除</a>
+                        </td>
+                    </tr>
+                    {/foreach}
+                    </tbody>
+                </table>
+                {$goods_list->render()}
+            </div>
+        </div>
+    </div>
+</div>
+{/block}

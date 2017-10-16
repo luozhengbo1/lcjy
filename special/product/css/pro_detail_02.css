@@ -1,0 +1,241 @@
+@charset "utf-8";
+*{
+	font-family: "PingFang SC","Helvetica Neue",Helvetica,"Hiragino Sans GB","Microsoft YaHei","微软雅黑",Arial,sans-serif;
+	font-size: 0.28rem;
+	color: #333333;
+}
+body {
+	background-color: #ededed;
+}
+
+/*改版后的CSS*/
+.pro_div{
+	height: 6rem;
+	text-align: center;
+	background-color: #ffffff;
+}
+.pro_div .det_img img{
+	width: 4.13rem;
+	height: 5.7rem;
+	margin: 0 auto;
+	
+}
+.bianhao_div{
+	float: right;
+	position: relative;
+	z-index: 4;
+	width: 1.9rem;
+	height: 0.6rem;
+	/*position: fixed;*/
+	/*right: 0;*/
+	/*top: 0.3rem;*/
+	background: url(../img/biaoqian.png) center no-repeat;
+	background-size: 1.9rem 0.6rem;
+	padding-top: 0.13rem;
+	padding-left: 0.16rem;
+	margin-top: -5.3rem;
+}
+.bianhao_div p,.bianhao_div span{
+	font-size: 0.28rem;
+	color: #fff;
+	margin: 0 auto;
+}
+.det_text{
+	background-color: #ffffff;
+	margin-top: 0.2rem;
+	height: 12rem;
+	margin-bottom: 0.8rem;
+}
+.det_tit{
+	margin-top: 0.2rem;
+}
+/*row的左右边距*/
+.det_tit,.det_pri,.det_jiuti,.det_miaoshu{
+	margin-left:0rem;
+	margin-right: 0;
+}
+.border_01{
+	height: 0.8rem;
+	background-color: #c33636;
+	border: 1px solid #c2c2c2;
+	padding: 0;
+	text-align: center;
+}
+.border_01 p{
+	color: #fff;
+	font-size: 0.28rem;
+	line-height: 0.8rem;
+}
+/*偏移公用*/
+.pianyi{
+	margin-left: -1px;
+}
+/*下方的边框*/
+.pianyi_02{
+	margin-right: -1px;
+}
+.first_tit{
+	height: 1rem;
+	background-color: #f3f3f3;
+	border: 1px solid #c2c2c2;
+	padding: 0;
+	text-align: center;
+	border-top: none;
+}
+.first_tit p{
+	color: #333;
+	font-size: 0.28rem;
+	line-height: 1rem;
+}
+.second_tit{
+	height: 1.46rem;
+	background-color: #f3f3f3;
+	border: 1px solid #c2c2c2;
+	padding: 0;
+	text-align: center;
+	border-top: none;
+}
+.second_tit p{
+	color: #333;
+	font-size: 0.28rem;
+	line-height: 1.46rem;
+}
+.border_02{
+	height: 1rem;
+	background-color: #fff;
+	border: 1px solid #c2c2c2;
+	padding: 0;
+	text-align: center;
+	border-top: none;
+}
+.border_02 p{
+	color: #333;
+	font-size: 0.28rem;
+	line-height: 1rem;
+	text-decoration:line-through;
+}
+.border_03{
+	height: 1.46rem;
+	background-color: #fff;
+	border: 1px solid #c2c2c2;
+	padding: 0;
+	text-align: center;
+	border-top: none;
+}
+.border_03 p{
+	color: #333;
+	font-size: 0.28rem;
+}
+.border_03 p:first-child{
+	margin-top: 0.3rem;
+}
+.pianyi_03{
+	margin-left: -1px;
+}
+.pianyi_04{
+	/*margin-right: -2px;*/
+}
+.border_04{
+	width: 74.5%;
+	height: 1rem;
+	background-color: #fff;
+	border: 1px solid #c2c2c2;
+	padding: 0;
+	/*text-align: left;*/
+	padding-left: 0.2rem;
+	border-top: none;
+}
+.border_04 p{
+	color: #333;
+	font-size: 0.28rem;
+	line-height: 1rem;
+}
+.border_05{
+	width: 74.5%;
+	height: 1rem;
+	background-color: #fff;
+	border: 1px solid #c2c2c2;
+	padding: 0;
+	text-align: left;
+	border-top: none;
+	padding-left: 0.2rem;
+}
+.border_05 p{
+	color: #333;
+	font-size: 0.28rem;
+}
+.teshu_div{
+	display: flex;
+}
+.teshu_div img{
+	margin-top: 0.2rem;
+	margin-left: 0.1rem;
+}
+.maotai_img{
+	width: 0.6rem;
+	height: 0.6rem;
+}
+.teshu_div .xukezheng_img{
+	width: 0.42rem;
+	height: 0.6rem;
+	margin-right: 0.14rem;
+	margin-left: 0.2rem;
+}
+/*底部定制按钮*/
+.bottom_btn{
+	position: fixed;
+	bottom: 0;
+	width: 100%;
+	height: 0.9rem;
+	background-color: #333333;
+	text-align: center;
+}
+.bottom_btn p{
+	font-size: 0.3rem;
+	color: #ffffff;
+	margin-top: 0.25rem;
+}
+
+/*通用样式*/
+.clear_bor_l{
+	border-left: none;
+}
+.clear_bor_r{
+	border-right: none;
+}
+/*移动端适配 width|height|font-size = 视觉稿量出来的值 / 100rem;@lbl*/
+
+@media screen and (max-width:359px) and (min-width:320px) {
+	html,
+	body {
+		font-size: 50px !important;
+	}
+}
+
+@media screen and (max-width:374px) and (min-width:360px) {
+	html,
+	body {
+		font-size: 56.25px !important;
+	}
+}
+
+@media screen and (max-width:413px) and (min-width:375px) {
+	html,
+	body {
+		font-size: 58.5px !important;
+	}
+}
+
+@media screen and (max-width:639px) and (min-width:414px) {
+	html,
+	body {
+		font-size: 64.6px !important;
+	}
+}
+
+@media screen and (min-width:640px) {
+	html,
+	body {
+		font-size: 100px !important;
+	}
+}
