@@ -10,21 +10,19 @@
 
 	<body>
 		<div class="bg_01" id="bg_01">
-
 			<div class="play">
-
-				<video autoplay="" loop="" controls>
-					<source src="css/movie.mp4" type="video/mp4">
-					<source src="movie.ogg" type="video/ogg"> 您的浏览器不支持 HTML5 video 标签。
+				<video controls="controls" autoplay="autoplay" loop="loop">
+					<source src="movie/zzz2.mp4" type="video/mp4">
+					<source src="movie/zzz2.webm" type="video/webm">
 				</video>
 			</div>
 
 			<div class="bgs">
 
-				<img src="img/bgs.png" />
+				<!--<img src="img/bgs.png" />-->
 				<div class="header">
 					<div class="logo">
-						<img src="img/logo.png">
+						<a href="index.html"><img src="img/logo.png"></a>
 					</div>
 				</div>
 
@@ -33,22 +31,36 @@
 						<li><img src="img/img9.png"></li>
 						<li><img src="img/img10.png"></li>
 						<li><img src="img/img7.png"></li>
+						<li><img src="img/img8.png"></li>
+						<li><img src="img/img6.png"></li>
+						<li><img src="img/img5.png"></li>
+						<li><img src="img/img4.png"></li>
+						<li><img src="img/img3.png"></li>
+						<li><img src="img/img2.png"></li>
 					</ul>
-					<div id="bottom">
-						<ul id="xia">
-							<a href="#" id="left">上一张</a>
-							<a href="#" id="right">下一张</a>
-							<li><img src="img/img9.png"></li>
-							<li><img src="img/img10.png"></li>
-							<li><img src="img/img7.png"></li>
-						</ul>
-						<div class="imgs">
-							<img src="img/xia_logo.png" />
+					<div class="big_bottom">
+						<a href="#" id="left">上一张</a>
+						<div id="bottom">
+							<ul id="xia">
+								<li><img src="img/img9.png"></li>
+								<li><img src="img/img10.png"></li>
+								<li><img src="img/img7.png"></li>
+								<li><img src="img/img8.png"></li>
+								<li><img src="img/img6.png"></li>
+								<li><img src="img/img5.png"></li>
+								<li><img src="img/img4.png"></li>
+								<li><img src="img/img3.png"></li>
+								<li><img src="img/img2.png"></li>
+								<li><img src="img/img9.png"></li>
+								<li><img src="img/img10.png"></li>
+								<li><img src="img/img7.png"></li>
+							</ul>
+							<!--<div class="imgs">
+								<img src="img/xia_logo.png" />
+							</div>-->
 						</div>
-						
-						
+						<a href="#" id="right">下一张</a>
 					</div>
-
 				</div>
 				
 				
@@ -67,7 +79,7 @@
 		<div style="display: none;" class="bg_02" id="bg_02">
 			<div class="header">
 				<div class="logo">
-					<a href="list.html"><img src="img/logo.png"></a>
+					<a href="index.html"><img src="img/logo.png"></a>
 				</div>
 			</div>
 
@@ -90,9 +102,9 @@
 			<div class="zhiti">			
 				<div class="shuru">
 					<input id="textinput" class="textinput" type="text" placeholder="点此输入汉字"><br>
-					<button id="font0" class="font0 fontbtn0" onclick="fontset(0)">行楷</button>
+					<button id="font0" class="font0 fontbtn0" onclick="fontset(0)">手写</button>
 					<button id="font1" class="font1 fontbtn" onclick="fontset(1)">毛笔</button>
-					<button id="font2" class="font2 fontbtn" onclick="fontset(2)">黑体</button>
+					<button id="font2" class="font2 fontbtn" onclick="fontset(2)">汉仪</button>
 					<button id="font3" class="font3 fontbtn" onclick="fontset(3)">宋体</button>
 					<button id="font4" class="font4 fontbtn" onclick="fontset(4)">即墨体</button>
 					<button id="font5" class="font5 fontbtn" onclick="fontset(5)">荔枝体</button>
@@ -106,7 +118,7 @@
 					<img src="img/saoma.png" />
 				</div>
 				<div class="yuan">
-					<img src="img/y.png" />
+					<img src="img/erweima.jpg" />
 				</div>
 				<div class="footer">
 					<img src="img/footer.png">
@@ -257,26 +269,22 @@
 		</script>
 		<script type="text/javascript">
 
-function bDisplay()
-{
-
-    var divD = document.getElementById("bg_01");
-    divD.style.display = "block";
-
-    var Detail = document.getElementById("bg_02");
-    Detail.style.display = "none";
-   
-}
-
-function aDisplay()
-{
-    var divD = document.getElementById("bg_01");
-    divD.style.display = "none";
-
-    var Detail = document.getElementById("bg_02");
-    Detail.style.display = "block";
-
-
-}
+		function bDisplay()
+		{
+		    var divD = document.getElementById("bg_01");
+		    divD.style.display = "block";
+		
+		    var Detail = document.getElementById("bg_02");
+		    Detail.style.display = "none";
+		}
+		
+		function aDisplay()
+		{
+		    var divD = document.getElementById("bg_01");
+		    divD.style.display = "none";
+		
+		    var Detail = document.getElementById("bg_02");
+		    Detail.style.display = "block";
+		}
 </script>
 </html>

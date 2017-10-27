@@ -1,28 +1,35 @@
 <?php
 namespace Dingtalk\Api;
 
-use Dingtalk\Utils\Http;
+use app\common\controller\DingtalkBase;
 use Dingtalk\Utils\Cache;
+use Dingtalk\Utils\Http;
+use think\Config;
+use think\Request;
+use think\Session;
 
-class Smlogin{
+class Smlogin extends  DingtalkBase {
 
-    private static $appConfig = [];
-
-    public function __construct($config)
+    protected $http;
+    public function _initialize()
     {
-        self::$appConfig = $config;
+      parent::_initialize();
+
     }
 
-    private function getAccessToken()
+
+    public function getAccessToken()
     {
-        $accessToken = Cache::get('DING_smlogin_access_token');
+        $accessToken = Session::get('DING_smlogin_access_token');
         if (!$accessToken)
         {
-            $appid = self::$appConfig['appid'];
-            $appsecret = self::$appConfig['appsecret'];
-            $response = Http::get('/sns/gettoken', array('appid' => $appid, 'appsecret' => $appsecret));
+//            $appid =Config::get('ddconfig.appid');
+            $appid ='dingoapzw2ktnvznxzvxcb';
+//            $appsecret = Config::get('appsecret');
+            $appsecret ='OwXyIUQOHDh2vkpkHQqtAybwEks2tgyhE-P524ltKtyR-GIPK5AO7jumNIaRlIMC';
+            $response =Http::get('/sns/gettoken', array('appid' => $appid, 'appsecret' => $appsecret));
             $accessToken = $response->access_token;
-            Cache::set('DING_smlogin_access_token', $accessToken);
+            Session::set('DING_smlogin_access_token', $accessToken);
         }
         return $accessToken;
     }

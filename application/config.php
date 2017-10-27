@@ -86,7 +86,7 @@ return [
         // 验证码字符集合
         'codeSet'  => '2345678abcdefhijkmnpqrstuvwxyzABCDEFGHJKLMNPQRTUVWXY',
         // 验证码字体大小(px)
-        'fontSize' => 22,
+        'fontSize' => 32,
         // 是否画混淆曲线
         'useCurve' => true,
         // 验证码位数
@@ -346,14 +346,15 @@ return [
         'ssosecret'				=>'sTNu4D_bAW30LLtPqPQtm0Xeo4T0WW6J84XbdQtwu3QAMvz9RT-U0Ey0zF0dPRtS',//后台管理应用密匙
         'agentid'				=>'122700771 ',//微应用id	-- 云消息
 
-        'appid' 				=>'dingoa70ok7bqooyhq9ttl',//开放应用id
+        'appid' 				    =>'dingoa70ok7bqooyhq9ttl',//开放应用id
         'appsecret'			    =>'dBr-XDEudfYd-GA2ie3X-MIvxOgC-A6Vx1EBTHq_iO6T6o2scWqpZtKcBf7mh3QZ',//开放应用密匙
 
         'suite_key'             =>'suitezsnwbtva3snuqpnb',// suite key 套件key
-        'suite_secret'          =>'IZPQLj570_fcTr55e1olqeq6SUxKaT1lsvkFdn1j_P2S6Si1SF_PRGYFYh1rRatU', // 套件 suite secret
+        'suite_secret'         =>'IZPQLj570_fcTr55e1olqeq6SUxKaT1lsvkFdn1j_P2S6Si1SF_PRGYFYh1rRatU', // 套件 suite secret
 
-        'get_sns_token_url'   	=>'https://oapi.dingtalk.com/sns/get_persistent_code',
-        'get_sns_token'		    =>'https://oapi.dingtalk.com/sns/get_sns_token',//获取用户授权的SNS_TOKEN
+        'get_sns_token_url'  =>'https://oapi.dingtalk.com/sns/gettoken',//开放应用获取token url
+        'get_persistent_code'	=>'https://oapi.dingtalk.com/sns/get_persistent_code',
+        'get_sns_token'		=>'https://oapi.dingtalk.com/sns/get_sns_token',//获取用户授权的SNS_TOKEN
         'sns_getuserinfo'		=>'https://oapi.dingtalk.com/sns/getuserinfo',//获取授权用户信息
 
         //请求参数url
@@ -365,7 +366,7 @@ return [
         'department_list_detail'=>'https://oapi.dingtalk.com/department/get',//获取部门列表(详细信息)
         'user_simplelist'		=>'https://oapi.dingtalk.com/user/simplelist',//获取部门成员列表
         'user_list'				=>'https://oapi.dingtalk.com/user/list',//获取部门成员列表(带详细信息)
-        'user_getinfo' 		    =>'https://oapi.dingtalk.com/user/get',//通过用户id获取用户信息
+        'user_getinfo' 		=>'https://oapi.dingtalk.com/user/get',//通过用户id获取用户信息
         'user_getinfo_by_code'	=>'https://oapi.dingtalk.com/user/getuserinfo',//通过code获取用户信息
         'get_userid_by_unionid'=>'https://oapi.dingtalk.com/user/getUseridByUnionid', // 通过unionid 获取userid
         'get_admin'             =>'https://oapi.dingtalk.com/user/get_admin', // 获取管理员列表

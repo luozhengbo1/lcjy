@@ -40,8 +40,8 @@ return [
      */
     'oauth' => [
         'scopes'   => ['snsapi_userinfo'],
-        // 'callback' => '/wechat/register',
-        'callback' => '/wechat/user/profile',
+//        'callback' => '/wechat/user/profile',
+        'callback' => '/wechat/register?src=0',
     ],
     /**
      * 微信支付

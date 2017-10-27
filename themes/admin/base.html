@@ -75,11 +75,22 @@
 </div>
 
 <script>
+	function UrlSearch() 
+{
+   var str =  window.location.pathname; //取得整个地址栏
+     var a = str.lastIndexOf('/');
+     var b = str.lastIndexOf('.html');
+	 var c =str.substring(a+1,b);
+	 return c;
+} 
+  var action = UrlSearch()
     // 定义全局JS变量
     var GV = {
-        current_controller: "admin/{$controller|default=''}/",
+        current_controller: "admin/{$controller|default=''}/"+action,
         base_url: "__STATIC__"
     };
+    
+
 </script>
 <!--JS引用-->
 <script src="__JS__/jquery.min.js"></script>

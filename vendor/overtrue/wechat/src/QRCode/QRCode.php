@@ -46,7 +46,7 @@ class QRCode extends AbstractAPI
      *
      * @return \EasyWeChat\Support\Collection
      */
-    public function forever($sceneValue,$sceneValue2)
+    public function forever($sceneValue)
     {
         if (is_int($sceneValue) && $sceneValue > 0 && $sceneValue < self::SCENE_MAX_VALUE) {
             $type = self::SCENE_QR_FOREVER;
@@ -56,9 +56,7 @@ class QRCode extends AbstractAPI
             $sceneKey = 'scene_str';
         }
 
-//        $scene = [$sceneKey => $sceneValue];
-        $scene = ['scene_str' => $sceneValue.','.$sceneValue2];
-        $type = self::SCENE_QR_FOREVER_STR;
+        $scene = [$sceneKey => $sceneValue];
 
         return $this->create($type, $scene, false);
     }

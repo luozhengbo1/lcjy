@@ -1,0 +1,283 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+/*上面文章部分*/
+.text_div{
+	width: 100%;
+}
+.text_div img{
+	width: 100%;
+	height: auto;
+}
+/*大坛CSS*/
+
+@font-face {
+	font-family:founder;src:url(../fonts/founder.ttf) format('truetype');
+}
+
+.bg_02 {
+	background-color: #fff;
+}
+.kuang_title{
+	width: 100%;
+	text-align: center;
+	margin-top: 20px;
+}
+.kuang_title img{
+	width: 50%;
+	height: auto;
+}
+.content1{
+	margin: 0 auto;
+	width: 798px;
+	height: 798px;
+	background-image: url(../img/biankuang.png);
+}
+
+.content0{
+	margin: 0 auto;
+	width: 798px;
+	height: 798px;
+	background-image: url(../img/biankuang0.png);
+}
+
+.zhiti{
+	/*margin-bottom: 40px;*/
+}
+
+.shuru{
+	/*margin-top: 20px;*/
+	text-align: center;
+}
+
+.textinput{
+	outline: none;
+	width: 400px;
+	font-size: 46px;
+	text-align: center;
+	border: none;
+	background: none;
+	border-bottom: 3px solid #8a8a8a;
+}
+
+
+.buttombtn{
+	position: relative;
+	left: 280px;
+	top: 340px;
+	background-image: url(../img/fanye.png);
+	background-color: transparent;
+    border: none;
+    width: 200px;
+    height: 73px;
+    text-align: center;
+    font-size: 30px;
+    color: #FFFFFF;
+    display: inline-block;
+    outline: none;
+}
+
+
+.font0{
+	font-family: founder;
+}
+
+
+.leftbox{
+	position: relative;
+	left: 318px;
+	top: 260px;
+	width: 110px;
+	height: 110px;
+}
+
+.rightbottle{
+	position: relative;
+	left: 515px;
+	top: 258px;
+	width: 160px;
+	height: 160px;
+}
+
+.blackfont0{
+	display: none;
+}
+
+.goldfont0{
+	display: none;
+}
+
+.blackfont1{
+	text-align: center;
+	font-size: 110px;
+	line-height: 130px;
+}
+
+.goldfont1{
+	text-align: center;
+	font-size: 160px;
+	background: url(../img/fontbg.jpg) no-repeat center;
+	background-size: 140px 100%;
+	line-height: 160px;
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent
+}
+
+.blackfont2{
+	text-align: center;
+	font-size: 50px;
+	line-height: 65px;
+}
+
+.goldfont2{
+	text-align: center;
+	font-size: 80px;
+	background: url(../img/fontbg.jpg) no-repeat center;
+	background-size: 70px 100%;
+	line-height: 85px;
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent
+}
+
+.blackfont3{
+	text-align: center;
+	font-size: 35px;
+	line-height: 45px;
+}
+
+.goldfont3{
+	text-align: center;
+	font-size: 60px;
+	background: url(../img/fontbg.jpg) no-repeat center;
+	background-size: 60px 100%;
+	line-height: 60px;
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent
+}
+
+.blackfont4{
+	text-align: center;
+	font-size: 50px;
+	line-height: 65px;
+}
+
+.goldfont4{
+	text-align: center;
+	font-size: 70px;
+	background: url(../img/fontbg.jpg) no-repeat center;
+	background-size: 140px 100%;
+	line-height: 82px;
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent
+}
+/*点击字体生成按钮*/
+.submit_wrap{
+	width: 100%;
+	text-align: center;
+	margin-top: 10px;
+	margin-bottom: 70px;
+}
+.click_btn{
+	font-size: 40px;
+	color: #fff;
+	background-color: #333;
+	border-radius: 15px;
+	padding: 25px 200px;
+}
+
+/*信息提交部分*/
+#contact{
+	background: #dc2a2a;
+	padding-bottom: 4vh;
+}
+#contact_header{
+	width: 80%;
+	/*height:40vh ;*/
+	margin: 0 auto;
+	padding-top: 5vh;
+} 
+#contact_header_img{
+	width: 100%;
+}
+#contact_form{
+	box-sizing: border-box;
+	width: 80%;
+	background: #fff;
+	height: 45%;
+	height: 45vh;
+	margin: 0 auto;
+	margin-top: 3vh;
+	padding-top: 3vh;
+}
+#contact_form p{
+	color: #d13939;
+	font-size: 36px;
+	text-align: center;
+	margin-bottom: 3vh;
+}
+#contact_form form input{
+	display: block;
+	height: 7vh;
+	margin: 0 auto;
+	margin-bottom: 5vh;
+}
+#contact_form form input[type='text']{
+	width: 80%;
+	border-color: #a6a6a6;
+	border-radius: 14px;
+	color: #333;
+	font-size: 36px;
+	box-sizing: border-box;
+	padding-left: 20px;
+} 
+#contact_form form input[type='button']{
+	width: 60%;
+	color: #fff;
+	font-size: 36px;
+	background: #dc2a2a;
+}
+footer{
+	width: 100%;
+	margin-top: 80px;
+}
+footer img{
+	width: 100%;
+	/*margin-left: -30px;*/
+}
+/*移动端适配 width|height|font-size = 视觉稿量出来的值 / 100rem;@lbl*/
+
+@media screen and (max-width:359px) and (min-width:320px) {
+	html,
+	body {
+		font-size: 50px !important;
+	}
+}
+
+@media screen and (max-width:374px) and (min-width:360px) {
+	html,
+	body {
+		font-size: 56.25px !important;
+	}
+}
+
+@media screen and (max-width:413px) and (min-width:375px) {
+	html,
+	body {
+		font-size: 58.5px !important;
+	}
+}
+
+@media screen and (max-width:639px) and (min-width:414px) {
+	html,
+	body {
+		font-size: 64.6px !important;
+	}
+}
+
+@media screen and (min-width:640px) {
+	html,
+	body {
+		font-size: 100px !important;
+	}
+}

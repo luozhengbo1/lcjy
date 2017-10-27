@@ -5,7 +5,7 @@
 
 /*背景*/
 
-.bg {
+.bg_01 {
 	position: relative;
 	float: left;
 	width: 1920px;
@@ -74,19 +74,23 @@ ol li {
 }
 
 .play {
-	background: url(../img/Tv.png);
+	/*background: url(../img/Tv.png);*/
 	float: right;
+	/*width: 879px;
+	height: 836px;*/
 	width: 986px;
 	height: 848px;
+	margin-top: -40px;
 }
 
 .play video {
 	width: 100%;
+	/*width: 83%;*/
 	height: 100%;
 }
 
 .bgs {
-	position: absolute;
+	/*position: absolute;*/
 	bottom: 0px;
 }
 
@@ -114,13 +118,20 @@ ol li {
 	left: 50px;
 	top: 33px;
 }
-
-#bottom {
-	width: 800px;
+.big_bottom{
+	width: 600px;
 	height: 120px;
 	position: relative;
 	left: -24px;
 	top: 110px;
+}
+#bottom {
+	width: 600px;
+	height: 120px;
+	position: relative;
+	left: 63px;
+	/*top: 110px;*/
+	overflow: hidden;
 }
 
 #bottom li img {
@@ -146,7 +157,7 @@ ol li {
 }
 #xia {
 	position: absolute;
-	margin-left: 200px;
+	margin-left: 50px;
 }
 
 #left {
@@ -159,7 +170,7 @@ ol li {
 	height: 88px;
 	top: 15px;
 	width: 158px;
-	left: -200px;
+	left: -104px;
 }
 
 #right {
@@ -171,7 +182,7 @@ ol li {
 	height: 80px;
 	width: 148px;
 	position: absolute;
-	right: -240px;
+	right: -213px;
 	background: url(../img/right.png) no-repeat 0 0;
 	z-index: 1000;
 }
@@ -204,4 +215,15 @@ ol li {
 }
 .img-bg img{
 	position: absolute;
+}
+.yuan{
+	width: 442px;
+	height: 424px;
+	background: url(../img/y.png) 0 no-repeat;
+}
+.yuan img{
+	width: 195px;
+	height: 195px;
+	padding-top: 100px;
+	padding-left: 112px;
 }

@@ -3,7 +3,7 @@
 }
 
 @font-face {
-	font-family:xingkai;src:url(../fonts/xingkai.ttf) format('truetype');
+	font-family:founder;src:url(../fonts/founder.ttf) format('truetype');
 }
 
 @font-face {
@@ -29,7 +29,12 @@
 @font-face {
 	font-family:songti;src:url(../fonts/songti.ttf) format('truetype');
 }
-
+@font-face {
+	font-family:hanyi;src:url(../fonts/hanyi.ttf) format('truetype');
+}
+/*@font-face {
+	font-family:xiaozhuan;src:url(../fonts/fzxiaozuan.TTF) format('truetype');
+}*/
 /*@font-face {
 	font-family:youran;src:url(../fonts/youran.ttf) format('truetype');
 }*/
@@ -48,13 +53,13 @@
 }
 
 .bg_02 .header img{
-	margin-top: 30px;
-	margin-left: 35px;
+	/*margin-top: 30px;
+	margin-left: 35px;*/
 }
 
 .content1{
 	float: left;
-	margin-top: 50px;
+	margin-top: 135px;
 	margin-left: 70px;
 	width: 798px;
 	height: 798px;
@@ -63,7 +68,7 @@
 
 .content0{
 	float: left;
-	margin-top: 50px;
+	margin-top: 135px;
 	margin-left: 70px;
 	width: 798px;
 	height: 798px;
@@ -184,7 +189,7 @@
 }
 
 .font0{
-	font-family: xingkai;
+	font-family: founder;
 }
 
 .font1{
@@ -192,7 +197,7 @@
 }
 
 .font2{
-	font-family: Simhei, "黑体", sans-serif;
+	font-family: hanyi;
 }
 
 .font3{

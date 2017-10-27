@@ -36,18 +36,19 @@ class WechatBase extends Controller
 
         $this->openid = Session::get('weixin_user_openid');
 
-        //判断openid是否为空，为空则获取当前方法的参数和方法名，存储缓存中
-        //要求重新授权，同时判断是否已经注册，注册了则跳转之原来的方法页面，否则跳转到注册页面
         if(empty($this->openid)){
             $oauth = $this->app->oauth;
-            //获取当前方法的参数，组合当前方法，然后存储到session中
+//            Session::delete('target_url');
+//            session('target_url',$_SERVER['PATH_INFO']);
+
             $param = http_build_query(request()->param());
             session('target_url',$_SERVER['PATH_INFO'].'?'.$param);
 
             $user = Session::get('weixin_user');
-            if (empty($user)){
+            if (empty($userssss)){
                 $oauth->redirect('http://t.j9zz.com/wechat/wechat1')->send();
             }else{
+                $user = session('wechat_user');
                 if(check_openid($this->openid)){
                     return $this->redirect('/wechat/register');
                 }

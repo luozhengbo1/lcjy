@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="pragma" content="no-cache">
+		<meta name="viewport" content="user-scalable=no" />
+		<meta name="description" content="酱酒智造·丁酉鸡年·茅台镇大坛佳酿,10坛就能定制!礼品定制酒,企业定制酒,私人定制酒,婚宴定制酒,寿宴定制酒,品牌定制酒等,免费设计,1瓶起订;酱酒智造-贵州茅台镇酱酒深度定制平台,酒质,包装,品牌柔性定制,全面满足个性化需求.">
+		<meta name="keywords" content="酱酒智造,鸡年大坛,贵州茅台镇酱香酒定制平台,茅台镇,定制酒,婚宴,寿宴,礼品,企业定制,酱酒直供,私人定制,私人订制,茅台镇原浆封坛,直供定制,j9zz,封坛大典,礼品定制酒,企业定制酒,私人定制酒,婚宴定制酒,寿宴定制酒,品牌定制酒等,免费设计,一瓶也能定制">
+		<meta name="author" content="Liter">
+		<meta http-equiv="Content-type" content="text/html;charset=UTF-8" />
+		<meta name="renderer" content="webkit" />
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+		<meta name="format-detection" content="telephone=yes, email=no" />
+		<link rel="icon" href="j9zz.ico" />
+		<link rel="shortcut icon" href="j9zz.ico" />
+		<link rel="bookmark" href="j9zz.ico" />
+		<title>酱酒智造·丁酉鸡年·茅台镇大坛佳酿,10坛就能定制!</title>
+		<!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
+		<link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+		<!-- 可选的 Bootstrap 主题文件（一般不用引入） -->
+		<link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+		<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+		<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+		<link rel="stylesheet" href="css/contact.css" />
+	</head>
+
+	<body>
+		<div class="text_div">
+			<img src="img/toutiao_01.gif"/>
+			<img src="img/toutiao_17.gif"/>
+			<img src="img/toutiao_04.gif"/>
+			<img src="img/toutiao_05.gif"/>
+			<img src="img/toutiao_06.gif"/>
+			<img src="img/toutiao_07.gif"/>
+			<img src="img/toutiao_08.gif"/>
+			<img src="img/toutiao_09.gif"/>
+			<img src="img/toutiao_10.gif"/>
+			<img src="img/toutiao_11.gif"/>
+			<img src="img/toutiao_12.gif"/>
+			<img src="img/toutiao_13.gif"/>
+			<img src="img/toutiao_14.gif"/>
+		</div>
+		<!--list页-->
+		<div class="bg_02" id="bg_02">
+			<div class="kuang_title">
+				<img src="img/titie.png" />
+			</div>
+			<div id="content" class="content1" onclick="rotate()">
+
+				<div id="fontsec" class="font0">
+					<div class="leftbox">
+						<div id="t1" class="blackfont4">酱酒<br>智造</div>
+					</div>
+					<div class="rightbottle" >
+						<div id="t2" class="goldfont4">酱酒<br>智造</div>
+					</div>
+				</div>
+				<button id="rotate" class="buttombtn" >正面</button>
+			</div>
+			<div class="zhiti">
+				<div class="shuru">
+					<input id="textinput" class="textinput ipt" type="text" placeholder="请输入1~4个字"><br>
+				</div>
+			</div>
+			<div class="submit_wrap">
+				<input type="button" id="font_btn" class="click_btn" value="生成效果图">
+			</div>
+		</div>
+		<section id="contact">
+			<div id="contact_header">
+				<img id="contact_header_img" src="img/kuang.png" />
+			</div>
+			<div id="contact_form">
+				<p>请提交以下信息与客服联系</p>
+				<form action="" method="post">
+					<input id="user" type="text" class="ipt" placeholder="姓名" />
+					<input id="phone" type="text" class="ipt" placeholder="电话" />
+					<input id="submit-from" type="button" value="提交" onclick="userFormSubmit()" />
+				</form>
+			</div>
+		</section>
+		<footer>	
+			<img class="" src="img/toutiao_16.png"/>
+		</footer>
+			
+		<script src="js/ajax.js" charset="utf-8"></script>
+		<script src="js/jquery.min.js"></script>
+		<script type="text/javascript">
+			//获取信息并传递
+			var user = document.getElementById("user"),
+				phone = document.getElementById("phone"),
+				btnsubmit = document.getElementById("submit-from"),
+				isReal = true,
+				_this = this;
+			function userFormSubmit() { //提交表单
+				var userVal = user.value,
+					phoneVal = phone.value;
+				if(userVal == "" || userVal == null) {
+						this.alert("请输入您的姓名！");
+						user.focus();
+					} else if(!(/^[\u4E00-\u9FA5\uf900-\ufa2d\w\.\s]{2,6}$/.test(userVal))) {
+					this.alert("姓名为2~6个字符！");
+					user.focus();
+				} else if(phoneVal == "" || phoneVal == null) {
+					this.alert("请输入手机号！");
+					phone.focus();
+				} else if(phoneVal.length !== 11) {
+					this.alert("手机号码格式不对<br />请输入11位手机号码！");
+					phone.focus();
+				} else {
+					oRequest.ajax({
+						type: 'POST',
+						url: oRequest.apiUrl + 'add',
+						data: {
+							name: userVal,
+							tel: phoneVal,
+						},
+						dataType: 'json',
+						success: function(result) {
+							if(result.code === 2001) {
+								_this.alert('提交成功,我们设计师会尽快联系您!');
+								user.value = '';
+								phone.value = '';
+								fontoutForm.style.display = 'block';
+								maskLayer.style.display = 'none';
+								/*setTimeout(function(){
+								    window.location.reload();
+								},2000)*/
+							} else {
+								result.msg && _this.alert(result.msg);
+							}
+						},
+						error: function(xhr) {
+							console.log(xhr)
+						}
+					});
+					if(isReal) {
+						oRequest.countViews(3);
+						isReal = !isReal;
+					}
+				}
+			}
+		</script>
+
+		<script type="text/javascript">
+			var status1, status2; //展示图正反面状态
+			var fontClick = document.getElementById("font_btn");
+			//字体切换和按钮重置
+			function fontset(f) {
+				var fontnum = "font" + f;
+				document.getElementById('fontsec').className = fontnum;
+				document.getElementById(fontnum).blur();
+				for(var i = 0; i < 8; i++) {
+					document.getElementById("font" + i).className = "font" + i + " fontbtn";
+				}
+				document.getElementById(fontnum).className = fontnum + " fontbtn0";
+			}
+			fontClick.onclick = function(e) {
+				var btntxt = document.getElementById('rotate').innerHTML;
+				if(btntxt == "背面"){
+						rotate();
+					}
+				typesetting();
+				document.getElementById('textinput').blur();
+			}
+			//手机键盘确认键联动
+			textinput.onkeydown = function(e) {
+				var btntxt = document.getElementById('rotate').innerHTML;
+				if(e.keyCode == 13) {
+					if(btntxt == "背面"){
+						rotate();
+					}
+					typesetting();
+					document.getElementById('textinput').blur();
+				}
+			}
+
+			//旋转展示图正反面
+			function rotate() {
+				var btntxt = document.getElementById('rotate').innerHTML;
+				if(btntxt == "正面") {
+					status1 = document.getElementById('t1').className;
+					status2 = document.getElementById('t2').className;
+					document.getElementById('t1').className = "blackfont0";
+					document.getElementById('t2').className = "goldfont0";
+					document.getElementById('content').className = "content0";
+					document.getElementById('rotate').innerHTML = "背面";
+				} else {
+					document.getElementById('t1').className = status1;
+					document.getElementById('t2').className = status2;
+					document.getElementById('content').className = "content1";
+					document.getElementById('rotate').innerHTML = "正面";
+				}
+			}
+			//输入文字的排版
+			function typesetting() {
+				var usertext = document.getElementById('textinput').value;
+				var len = usertext.length;
+				if(len > 4 || len < 1) {
+					alert('最多输入4个字');
+				} else {
+					var str;
+					if(len == 1) {
+						str = usertext;
+						document.getElementById('t1').className = "blackfont1";
+						document.getElementById('t2').className = "goldfont1";
+					}
+					if(len == 2) {
+						var str0 = usertext.charAt(0);
+						var str1 = usertext.charAt(1);
+						str = str0 + "<br>" + str1;
+						document.getElementById('t1').className = "blackfont2";
+						document.getElementById('t2').className = "goldfont2";
+					}
+					if(len == 3) {
+						var str0 = usertext.charAt(0);
+						var str1 = usertext.charAt(1);
+						var str2 = usertext.charAt(2);
+						str = str0 + "<br>" + str1 + "<br>" + str2;
+						document.getElementById('t1').className = "blackfont3";
+						document.getElementById('t2').className = "goldfont3";
+					}
+					if(len == 4) {
+						var str0 = usertext.charAt(0);
+						var str1 = usertext.charAt(1);
+						var str2 = usertext.charAt(2);
+						var str3 = usertext.charAt(3);
+						str = str0 + str1 + "<br>" + str2 + str3;
+						document.getElementById('t1').className = "blackfont4";
+						document.getElementById('t2').className = "goldfont4";
+					}
+					document.getElementById('t1').innerHTML = str;
+					document.getElementById('t2').innerHTML = str;
+				}
+				document.getElementById('textinput').value = "";
+			}
+		</script>
+		<script type="text/javascript">
+			function bDisplay() {
+				var divD = document.getElementById("bg_01");
+				divD.style.display = "block";
+
+				var Detail = document.getElementById("bg_02");
+				Detail.style.display = "none";
+			}
+
+			function aDisplay() {
+				var divD = document.getElementById("bg_01");
+				divD.style.display = "none";
+
+				var Detail = document.getElementById("bg_02");
+				Detail.style.display = "block";
+			}
+		</script>
+	</body>
+
+</html>
